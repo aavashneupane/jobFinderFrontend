@@ -26,6 +26,11 @@ class Register extends Component {
             .then(response => {
                 console.log(response);
                 //console.log(response.data);
+                alert("User has been registered successfully")
+            })
+            .catch(err => {
+                console.log(err.response);
+                alert("Registration unsuccessfull")
             })
 
     };

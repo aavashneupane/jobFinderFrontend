@@ -18,12 +18,14 @@ submitLogin=(e)=>{
     axios.post("http://localhost:91/user/login", this.state)
     .then(response => {
         console.log("success");
+        alert("Login Successfull")
         localStorage.setItem('token',response.data.token)
 
         //console.log(response.data);
     })
     .catch(err => {
         console.log(err.response);
+        alert("Login unsuccessfull")
     })
     
     

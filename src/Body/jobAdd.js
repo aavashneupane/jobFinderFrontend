@@ -1,4 +1,5 @@
 import React , { Component} from 'react';
+import { Button } from "../Header/Button";
 //import { axios } from 'axios';
 const axios = require('axios').default;
 
@@ -62,7 +63,7 @@ render() {
                 </p>
 
                 <p>
-                    <button onClick={this.jobAddMethod}>Add Job</button>
+                    <Button onClick={this.joBAddMethod}>Add Job</Button>
                     
                 </p>
             </form>

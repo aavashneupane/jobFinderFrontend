@@ -1,3 +1,4 @@
+import { Button } from "../Header/Button";
 import { Component } from "react";
 const axios = require('axios').default;
 
@@ -67,7 +68,7 @@ class Register extends Component {
                     <p>Role<input type="role" value={this.state.Role} name="role"
                         onChange={this.inputHandler} /></p>
 
-                    <button onClick={this.sendUserInfo}>Submit</button>
+                    <Button onClick={this.sendUserInfo}>Submit</Button>
 
                 </form>
 

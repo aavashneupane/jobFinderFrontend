@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Route, Link } from 'react-router-dom';
+import { Button } from "../Header/Button";
 //import { axios } from 'axios';
 const axios = require('axios').default;
 
@@ -54,7 +55,7 @@ class showAllJob extends Component {
                                 <p>Creator:{job.creator}</p>
                                 <p>Posted at:{job.createdAt}</p>
 
-                                <p><button onClick={this.deleteJob.bind(this, job._id)}>Delete</button></p>
+                                <p><Button onClick={this.deleteJob.bind(this, job._id)}>Delete</Button></p>
                                 <p><Link to={'/update/' + job._id}>Update</Link></p>
                             </div>
                             )

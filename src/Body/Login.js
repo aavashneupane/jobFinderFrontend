@@ -1,3 +1,4 @@
+import { Button } from "../Header/Button";
 const {Component}=require("react");
 const axios = require('axios').default;
 
@@ -25,7 +26,7 @@ submitLogin=(e)=>{
     })
     .catch(err => {
         console.log(err.response);
-        alert("Login unsuccessfull")
+        alert("Login unuccessfull")
     })
     
     
@@ -45,7 +46,7 @@ submitLogin=(e)=>{
                 <p>Password<input type="password" value={this.state.password} name="password"
                     onChange={this.inputHandler} /></p>
 
-                <button onClick={this.submitLogin}>Submit</button>
+                <Button onClick={this.submitLogin}>Submit</Button>
 
             </form>
 

@@ -4,16 +4,12 @@ export const MenuItems=[
         url:'/',
         cName:'nav-links'
     },
-    {
-        title:'Sign up',
-        url:'/register',
-        cName:'nav-links'
-    },
-    {
-        title:'Login',
-        url:'/login',
-        cName:'nav-links'
-    },
+    // {
+    //     title:'Sign up',
+    //     url:'/register',
+    //     cName:'nav-links'
+    // },
+    
     {
         title:'Add Job',
         url:'/jobAdd',
@@ -22,6 +18,22 @@ export const MenuItems=[
     {
         title:'Show all jobs',
         url:'/showAllJob',
+        cName:'nav-links'
+    },
+    {
+        title:'Profile',
+        
+        url:'/profile',
+        cName:'nav-links'
+    },
+    {
+        title:'Login',
+        url:'/login',
+        cName:'nav-links'
+    },
+    {
+        title:'Register',
+        url:'/register',
         cName:'nav-links-mobile'
     },
 ]

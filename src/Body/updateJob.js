@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from "../Header/Button";
 const axios = require('axios').default;
 
 class updateJob extends Component {
@@ -67,7 +68,7 @@ class updateJob extends Component {
                         />
                     </p>
                     <p>
-                        <button onClick={this.updateData}>Update</button>
+                        <Button onClick={this.updateData}>Update</Button>
                     </p>
                 </form>
             </div>

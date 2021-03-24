@@ -11,6 +11,7 @@ class Header extends Component {
                 <Link to="/login"> Login</Link>
                 <Link to="/jobAdd"> Job Add</Link>
                 <Link to="/updateJob"> Update Job</Link>
+                <Link to="/showAllJob"> Show All Job</Link>
             </div>
         )
     }

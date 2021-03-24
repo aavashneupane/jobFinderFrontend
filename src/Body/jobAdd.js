@@ -9,9 +9,9 @@ state={
     jobdescription:'',
     requiredexperience:'',
     jobprice:'',
-    // config:{
-    //  headers:{'authorization': Bearer $(localStorage.getItem('token')}
-    // }
+    config:{
+        headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
+    }
 }
 
 inputHandler=(e)=>{

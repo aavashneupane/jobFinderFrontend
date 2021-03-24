@@ -20,7 +20,7 @@ class Register extends Component {
     }
 
     sendUserInfo = (e) => {
-        e.preventDefault()
+        //e.preventDefault()
         
         axios.post("http://localhost:91/user/add", this.state)
             .then(response => {

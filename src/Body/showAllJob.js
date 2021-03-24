@@ -24,7 +24,16 @@ class showAllJob extends Component {
         })
     }
 
-   
+    deleteJob = (pid) =>{
+        axios.delete('http://localhost:91/job/delete/' + pid,  this.state.config)
+        .then((response)=>{
+            console.log(response)
+        })
+        .catch((err)=>{
+            console.log(err.response)
+        })
+    
+     }
     
 
 
@@ -42,9 +51,8 @@ render() {
                             <p>Required experience:{job.requiredexperience}</p>
                             <p>Creator:{job.creator}</p>
                             <p>Posted at:{job.createdAt }</p>
-
-                         
-
+                            
+                            <p><button onClick={this.deleteJob.bind(this, job._id)}>Delete</button></p>
                            <p><Link to={'/update/'+job._id}>Update</Link></p>
                         </div>
                             ) 

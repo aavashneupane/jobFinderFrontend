@@ -21,17 +21,19 @@ class Register extends Component {
     }
 
     sendUserInfo = (e) => {
-        //e.preventDefault()
+        e.preventDefault()
         
         axios.post("http://localhost:91/user/add", this.state)
             .then(response => {
                 console.log(response);
                 //console.log(response.data);
                 alert("User has been registered successfully")
+                window.location.href = '/login';
             })
             .catch(err => {
                 console.log(err.response);
                 alert("Registration unsuccessfull")
+                window.location.href = '/register';
             })
 
     };

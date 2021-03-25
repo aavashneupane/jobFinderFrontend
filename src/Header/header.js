@@ -1,4 +1,4 @@
-import { MenuItems } from "./MenuItems";
+// import { MenuItems } from "./MenuItems";
 import './header.css';
 import { Button } from "./Button";
 import { Link } from 'react-router-dom';
@@ -12,8 +12,13 @@ class Header extends Component {
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked });
     }
+    // logout() {
+    //     localStorage.clear();
+    //     window.location.href = '/';
+    // }
 
     render() {
+        const { isLoggedIn } = this.state;
         return (
             <nav className="NavbarItems">
                 <h1 className="navbar-logo">Job Finder<i className="fab fa-react"></i></h1>
@@ -21,7 +26,29 @@ class Header extends Component {
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {MenuItems.map((item, index) => {
+
+                    <li className="nav-links"><Link to="/"> Home</Link></li>
+                    <li className="nav-links"><Link to="/profile"> Profile</Link></li>
+                    <li className="nav-links"><Link to="/jobAdd"> Job Add</Link></li>
+                    <li className="nav-links"><Link to="/showAllJob"> Show All Job</Link></li>
+                    <div>
+                        {
+                            isLoggedIn
+                                ? (
+                                    <li className="nav-links"><Link to="/login"> Logout</Link></li>                
+                                    
+                                    
+                                )
+                                : (
+                                    <li className="nav-links"><Link to="/login"> Login</Link></li>                
+                                        
+                                    
+                                )
+                        }
+                    </div>
+
+                    {/* <li class="nav-links"><Link to="/login"> Login</Link></li> */}
+                    {/* {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
                                 <a className={item.cName} href={item.url}>
@@ -30,7 +57,7 @@ class Header extends Component {
                             </li>
 
                         )
-                    })}
+                    })} */}
 
 
                 </ul>
@@ -38,14 +65,13 @@ class Header extends Component {
                 <Link to="/register"><Button>
                     Sign Up
                     </Button></Link>
-                    
+                <div>
+                    <Link to="/register"></Link>
+                    {/* <a href="#" onClick={this.logout()}>LOGOUT</a> */}
+                </div>
 
 
-                {/* <Link to="/register"> Register</Link>
-                <Link to="/login"> Login</Link>
-                <Link to="/jobAdd"> Job Add</Link>
-                <Link to="/updateJob"> Update Job</Link>
-                <Link to="/showAllJob"> Show All Job</Link> */}
+
             </nav>
         )
     }

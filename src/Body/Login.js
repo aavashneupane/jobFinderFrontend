@@ -21,12 +21,13 @@ submitLogin=(e)=>{
         console.log("success");
         alert("Login Successfull")
         localStorage.setItem('token',response.data.token)
-
+        window.location.href = '/showAllJob';
         //console.log(response.data);
     })
     .catch(err => {
         console.log(err.response);
-        alert("Login unuccessfull")
+        alert("Login unuccessfull. Try again")
+        window.location.href = '/login';
     })
     
     
@@ -34,6 +35,7 @@ submitLogin=(e)=>{
 };
 
     render() {
+        
         return(
             <div>
 

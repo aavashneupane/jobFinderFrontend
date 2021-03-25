@@ -63,7 +63,7 @@ render() {
                 </p>
 
                 <p>
-                    <Button onClick={this.joBAddMethod}>Add Job</Button>
+                    <Button onClick={this.jobAddMethod}>Add Job</Button>
                     
                 </p>
             </form>

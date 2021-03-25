@@ -5,6 +5,7 @@ import {Container,Row,Col} from 'react-bootstrap';
 import jobAdd from './jobAdd';
 import showAllJob from './showAllJob';
 import updateJob from './updateJob';
+import profile from './profile';
 const {Component}=require("react");
 
 
@@ -22,6 +23,7 @@ class Body extends Component {
               <Route path='/jobAdd' component={jobAdd} />
               <Route path='/showAllJob' component={showAllJob} />
               <Route path='/updateJob' component={updateJob} />
+              <Route path='/profile' component={profile} />
               
 
           </Container>

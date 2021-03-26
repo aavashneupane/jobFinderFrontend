@@ -12,10 +12,10 @@ class Header extends Component {
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked });
     }
-    // logout() {
-    //     localStorage.clear();
-    //     window.location.href = '/';
-    // }
+    logout() {
+        localStorage.clear();
+        window.location.href = '/login';
+    }
 
     render() {
         const { isLoggedIn } = this.state;
@@ -28,9 +28,11 @@ class Header extends Component {
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
 
                     <li className="nav-links"><Link to="/"> Home</Link></li>
+                    <li className="nav-links"><Link to="/aboutus"> About us</Link></li>
                     <li className="nav-links"><Link to="/profile"> Profile</Link></li>
                     <li className="nav-links"><Link to="/jobAdd"> Job Add</Link></li>
                     <li className="nav-links"><Link to="/showAllJob"> Show All Job</Link></li>
+                    <Button onClick={this.logout}>Log out</Button>
                     <div>
                         {
                             isLoggedIn

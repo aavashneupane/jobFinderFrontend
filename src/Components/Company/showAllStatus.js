@@ -1,11 +1,11 @@
 import React, { Component, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Route, Link } from 'react-router-dom';
-import { Button } from "../Header/Button";
+import { Button } from "../../Header/Button";
 //import { axios } from 'axios';
 const axios = require('axios').default;
 
-class showAllJob extends Component {
+class showAllStatus extends Component {
     state = {
         jobs: [],
         config: {
@@ -60,20 +60,22 @@ class showAllJob extends Component {
                         this.state.jobs.map((job) => {
                             return (<div>
                                 
-                                <div class="card-text-center" >
-                                <div class="card-header">
-                                <h5 class="card-title">{job.jobtitle}</h5>
+                                <div className="card-text-center" >
+                                <div className="card-header">
+                                <h5 className="card-title">{job.confirmstatus}</h5>
                                 </div>
-                                <div class="card-body">
+                                <div className="card-body">
                                     
-                                    <p class="card-text-center">Type :{job.jobtype}</p>
-                                    <p>Description:{job.jobdescription}</p>
-                                    <p>Required experience:{job.requiredexperience}</p>
+                                    <p className="card-text-center">Job ID :{job.jobid}</p>
+                                    <p>Creator:
+                                        {/* {job.jobdescription} */}
+                                        </p>
+                                    
                                     {/* <p>Creator:{job.creator}</p> */}
                                     <p>Posted at:{job.createdAt}</p>
                                     <p><Button onClick={this.deleteJob.bind(this, job._id)}>Delete</Button></p>
                                     <p><Button onClick={this.applyJob.bind(this, job._id)}>Apply</Button></p>
-                                    <button class="btn btn-warning"><Link to={'/update/' + job._id}>Update</Link></button>
+                                    {/* <button className="btn btn-warning"><Link to={'/update/' + job._id}>Update</Link></button> */}
                                 </div>
                                 
                                 </div>
@@ -97,4 +99,4 @@ class showAllJob extends Component {
 
 }
 
-export default showAllJob;
+export default showAllStatus;

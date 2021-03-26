@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from "../Header/Button";
+import { Button } from "../../Header/Button";
 const axios = require('axios').default;
 
 class updateJob extends Component {
@@ -34,7 +34,7 @@ class updateJob extends Component {
             })
     }
 
-    updateData = (e) => {
+    updateJob = (e) => {
         e.preventDefault();
         axios.put('http://localhost:91/job/update', this.state)
             .then((response) => {
@@ -51,27 +51,26 @@ class updateJob extends Component {
 
     render() {
         return (
-            <div>
-                <form>
-                    <p><label>Job name</label>
-                        <input type="text" name="jobtitle"
-                            value={this.state.jobtitle}
-                            onChange={this.changeHandler} />
-                    </p>
-
-                    <p>
-                        Job Description
+            <form>
+                <p>
+                    job title
                     <input type="text"
-                            name="jobdescription"
-                            value={this.state.jobdescription}
-                            onChange={this.changeHandler}
-                        />
-                    </p>
-                    <p>
-                        <Button onClick={this.updateData}>Update</Button>
-                    </p>
-                </form>
-            </div>
+                    value={this.state.jobtitle}
+                    name="jobtitle"
+                    onChange={this.changeHandler}
+                    />
+                </p>
+                <p>
+                    Job description
+                    <input type="text"
+                    value={this.state.jobdescription}
+                    name="jobdescription"
+                    onChange={this.changeHandler}
+                    />
+                </p>
+                
+                <button onClick={this.updateJob}>Update</button>
+            </form>
         )
     }
 

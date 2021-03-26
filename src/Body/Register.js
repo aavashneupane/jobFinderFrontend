@@ -1,5 +1,6 @@
 import { Button } from "../Header/Button";
 import { Component } from "react";
+import { Card } from 'react-bootstrap';
 const axios = require('axios').default;
 
 class Register extends Component {
@@ -42,7 +43,8 @@ class Register extends Component {
 
         return (
             <div>
-
+                <p></p>
+<Card body>
                 <h2>Register</h2>
 
                 <form>
@@ -75,7 +77,7 @@ class Register extends Component {
                 </form>
 
 
-
+                </Card>
             </div>
 
         )

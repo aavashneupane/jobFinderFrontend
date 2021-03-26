@@ -22,7 +22,7 @@
 .nav-menu{
     color:white;
     display: grid;
-    grid-template-columns: repeat(5,auto);
+    grid-template-columns: repeat(8,auto);
     grid-gap: 10px;
     list-style: none;
     text-align:center;
@@ -80,7 +80,7 @@
         display:table;
     }
     .nav-links:hover{
-        background-color: #7577fa;
+        background-color: black;
         border-radius: 0;
     }
     .navbar-logo{

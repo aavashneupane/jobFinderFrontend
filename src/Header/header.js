@@ -20,6 +20,7 @@ class Header extends Component {
     render() {
         const { isLoggedIn } = this.state;
         return (
+            
             <nav className="NavbarItems">
                 <h1 className="navbar-logo">Job Finder<i className="fab fa-react"></i></h1>
                 <div className="menu-icon" onClick={this.handleClick}>
@@ -29,10 +30,13 @@ class Header extends Component {
 
                     <li className="nav-links"><Link to="/"> Home</Link></li>
                     <li className="nav-links"><Link to="/aboutus"> About us</Link></li>
+                   <li className="nav-links"><Link to="/showAllJob"> Show All Job</Link></li>
+
+
+
                     <li className="nav-links"><Link to="/profile"> Profile</Link></li>
                     <li className="nav-links"><Link to="/jobAdd"> Job Add</Link></li>
-                    <li className="nav-links"><Link to="/showAllJob"> Show All Job</Link></li>
-                    <Button onClick={this.logout}>Log out</Button>
+                     <Button onClick={this.logout}>Log out</Button>
                     <div>
                         {
                             isLoggedIn
@@ -64,11 +68,13 @@ class Header extends Component {
 
                 </ul>
 
-                <Link to="/register"><Button>
+                <Link to="/register">
+                    <Button>
                     Sign Up
-                    </Button></Link>
+                    </Button>
+                    </Link>
                 <div>
-                    <Link to="/register"></Link>
+                    {/* <Link to="/register"></Link> */}
                     {/* <a href="#" onClick={this.logout()}>LOGOUT</a> */}
                 </div>
 

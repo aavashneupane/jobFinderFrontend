@@ -22,30 +22,31 @@ class showAllJob extends Component {
                 })
             })
             .catch((err) => {
-                console.log(err.response)
+                console.log(err.response);
+                alert("Error. Please Login first")
             })
     }
 
-    deleteJob = (pid) => {
-        axios.delete('http://localhost:91/job/delete/' + pid, this.state.config)
+    deleteJob = (id) => {
+        axios.delete('http://localhost:91/job/delete/' + id, this.state.config)
             .then((response) => {
                 console.log(response)
                 alert("Delete successfull")
             })
             .catch((err) => {
-                console.log(err.response)
+                //console.log(err.response)
                 alert("Delete unsuccessfull")
             })
 
     }
-    applyJob = (pid) => {
-        axios.post('http://localhost:91/job/applyJob/' + pid, this.state.config)
+    applyJob = (id) => {
+        axios.post('http://localhost:91/job/applyJob/' + id, this.state.config)
             .then((response) => {
-                console.log(response)
+                //             console.log(response)
                 alert("Job apply successfull")
             })
             .catch((err) => {
-                console.log(err.response)
+                //console.log(err.response)
                 alert("Job apply unsuccessfull")
             })
 
@@ -68,45 +69,46 @@ class showAllJob extends Component {
         return (
             <Container>
                 <Row>
-                
+
                     <div>
-                    <p></p>
-                        
-                    {
-                        this.state.jobs.map((job) => {
-                            return (<div>
-                 <Card body>
-                                <div class="card-text-center" >
-                                <div class="card-header">
-                                <h5 class="card-title">{job.jobtitle}</h5>
-                                </div>
-                                <div class="card-body">
-                                    
-                                    <p class="card-text-center">Type :{job.jobtype}</p>
-                                    <p>Description:{job.jobdescription}</p>
-                                    <p>Required experience:{job.requiredexperience}</p>
-                                    {/* <p>Creator:{job.creator}</p> */}
-                                    <p>Posted at:{job.createdAt}</p>
-                                    <p><Button onClick={this.deleteJob.bind(this, job._id)}>Delete</Button></p>
-                                    <p><Button onClick={this.applyJob.bind(this, job._id)}>Apply</Button></p>
-                                    <button class="btn btn-warning"><Link to={'/updateJob/'+job._id}>Update</Link></button>
-                                </div>
-                                
-                                </div>
-                             
+                        <p></p>
 
-                                
-                                
-                                
+                        {
+                            this.state.jobs.map((job) => {
+                                return (<div>
+                                    <Card body>
+                                        <div class="card-text-center" >
+                                            <div class="card-header">
+                                                <h5 class="card-title">{job.jobtitle}</h5>
+                                            </div>
+                                            <div class="card-body">
 
-                               
-                               </Card>
-                               <p></p>
-                            </div>
-                            )
-                        })
-                    }
-                     
+                                                <p class="card-text-center">Type :{job.jobtype}</p>
+                                                <p>Description:{job.jobdescription}</p>
+                                                <p>Required experience:{job.requiredexperience}</p>
+                                                <p>Email:{job.creator.email}</p>
+                                                <p>Company:{job.creator.company}</p>
+                                                <p>Posted at:{job.createdAt}</p>
+                                                <p><Button onClick={this.deleteJob.bind(this, job._id)}>Delete</Button></p>
+                                                <p><Button onClick={this.applyJob.bind(this, job._id)}>Apply</Button></p>
+                                                <button class="btn btn-warning"><Link to={'/updateJob/' + job._id}>Update</Link></button>
+                                            </div>
+
+                                        </div>
+
+
+
+
+
+
+
+                                    </Card>
+                                    <p></p>
+                                </div>
+                                )
+                            })
+                        }
+
                     </div>
                     <Col></Col>
                 </Row>

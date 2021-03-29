@@ -10,7 +10,7 @@ state={
     jobdescription:'',
     requiredexperience:'',
     jobprice:'',
-    config:{
+    config : {
         headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
     }
 }
@@ -21,9 +21,18 @@ inputHandler=(e)=>{
     })
 }
 jobAddMethod=(e)=>{
-    
+ 
+
     e.preventDefault()
-    axios.post("http://localhost:91/job/add", this.state)
+
+    axios({
+        method: 'post',
+        url: 'http://localhost:91/job/add',
+        data: this.state,
+        headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
+      })
+      
+   // axios.post("http://localhost:91/job/add", this.state.config,data)
     .then(response => {
         console.log(response);
         alert("Job has been added")

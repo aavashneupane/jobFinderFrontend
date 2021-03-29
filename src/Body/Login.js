@@ -1,6 +1,7 @@
 import { Button } from "../Header/Button";
 import { Redirect } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+import { Card, Form } from 'react-bootstrap';
+
 const { Component } = require("react");
 const axios = require('axios').default;
 
@@ -27,6 +28,9 @@ class Login extends Component {
                 console.log("success");
                 alert("Login Successfull")
                 localStorage.setItem('token', response.data.token)
+                localStorage.setItem('id', response.data.id)
+                localStorage.setItem('email', response.data.email)
+                localStorage.setItem('role', response.data.role)
                 window.location.href = '/showAllJob';
                 //console.log(response.data);
             })
@@ -48,29 +52,41 @@ class Login extends Component {
             return <Redirect to='/showAllJob' />
         }
         return (
-            <div>
-                <p></p>
-                <Card body>
-                    <h2>Login</h2>
+           
 
-                    <form>
+<div>
+            <div className="auth-wrapper">
+                <div className="auth-inner">
+                    <div className="login-form">
 
-                        <p>Email<input type="text" value={this.state.email} name="email"
-                            onChange={this.inputHandler} /></p>
+                        <form>
+                            <h3>Sign In</h3>
 
-                        <p>Password<input type="password" value={this.state.password} name="password"
-                            onChange={this.inputHandler} /></p>
+                            <div className="form-group">
+                                <label>Email address</label>
+                                <input type="email" className="form-control" placeholder="Enter email" value={this.state.email} name="email"
+                                    onChange={this.inputHandler}/>
+                            </div>
 
-                        <Button onClick={this.submitLogin}>Submit</Button>
+                            <div className="form-group">
+                                <label>Password</label>
+                                <input type="password" className="form-control" placeholder="Enter password" value={this.state.password} name="password"
+                    onChange={this.inputHandler} />
+                            </div>
 
-                    </form>
+                            
 
-                </Card>
+                         <Button variant="primary" type="submit" onClick={this.submitLogin}>
+                        Login
+                          </Button>
 
+
+                        </form>
+                    </div>
+                </div>
             </div>
 
-
-
+            </div>
         )
     }
 

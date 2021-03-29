@@ -7,9 +7,9 @@ class updateJob extends Component {
     state = {
         jobtitle: '',
         jobdescription: '',
-        // config:{
-        //     headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
-        // },
+        config:{
+            headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
+        },
         id: this.props.match.params.id
     }
     changeHandler = (e) => {

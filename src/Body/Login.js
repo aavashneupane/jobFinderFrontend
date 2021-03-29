@@ -31,6 +31,8 @@ class Login extends Component {
                 localStorage.setItem('id', response.data.id)
                 localStorage.setItem('email', response.data.email)
                 localStorage.setItem('role', response.data.role)
+                localStorage.setItem('firstname', response.data.firstName)
+                localStorage.setItem('lastname', response.data.lastName)
                 window.location.href = '/showAllJob';
                 //console.log(response.data);
             })

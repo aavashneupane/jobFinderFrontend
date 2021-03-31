@@ -16,14 +16,15 @@ class whoApplied extends Component {
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
-        id : this.props.match.params.id
+        id : this.props.location.id
     }
+  
     
     componentDidMount() {
 
         axios({
             method: 'get',
-            url: 'http://localhost:91/job/addshowWhoApplied/',
+            url: 'http://localhost:91/job/showWhoApplied/',
             data: this.state.id,
             headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
           })        
@@ -84,10 +85,11 @@ class whoApplied extends Component {
 
 
     render() {
+        
         return (
             <Container>
                 <Row>
-
+                   { alert(this.state.id)}
                     This is who applied page
                     
                 </Row>

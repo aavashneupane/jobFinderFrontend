@@ -8,7 +8,7 @@ const axios = require('axios').default;
 
 class myApplied extends Component {
     state = {
-        jobs: [],
+        appliedjobs: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         }
@@ -24,7 +24,7 @@ class myApplied extends Component {
             .then((response) => {
                 
                 this.setState({
-                    jobs: response.data,
+                    appliedjobs: response.data,
 
                 })
             })
@@ -37,7 +37,7 @@ class myApplied extends Component {
 
     
     deleteJob = (id) => {
-        axios.delete('http://localhost:91/job/delete/' + id, this.state.config)
+        axios.delete('http://localhost:91/job/deleteMyApplied/' + id, this.state.config)
             .then((response) => {
                 console.log(response)
                 alert("Delete successfull")
@@ -79,7 +79,7 @@ class myApplied extends Component {
                         <p></p>
 
                         {
-                            this.state.jobs.map((job) => {
+                            this.state.appliedjobs.map((job) => {
                                 return (<div>
                                     <Card body>
                                         <div class="card-text-center" >

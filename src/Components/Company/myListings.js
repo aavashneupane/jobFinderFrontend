@@ -100,7 +100,7 @@ class myListings extends Component {
                                                
                                                 <p><button class="btn btn-warning"><Link to={'/updateJob/'+job._id}>Update</Link></button></p>
                                                 
-                                                <p><button class="btn btn-primary"><Link to={'/whoApplied/'+job._id}>See who applied in this</Link></button></p>
+                                                <p><button class="btn btn-primary"><Link to={'/whoApplied/'+job._id}  >See who applied in this</Link></button></p>
                                             </div>
 
                                         </div>

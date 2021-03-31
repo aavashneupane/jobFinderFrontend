@@ -2,6 +2,7 @@
 import './header.css';
 import { Button } from "./Button";
 import { Link } from 'react-router-dom';
+import { Navbar,Nav,NavDropdown } from 'react-bootstrap';
 const { Component } = require("react");
 
 
@@ -18,7 +19,7 @@ class Header extends Component {
     }
 
     render() {
-        const { isLoggedIn } = this.state;
+       
         if (localStorage.getItem('token') && localStorage.getItem('role') === 'Company') {
             var menu =
                 <div>
@@ -75,7 +76,7 @@ class Header extends Component {
 
 
 
-                            <li className="nav-links"><Link to="/profile"> Profile</Link></li>
+                            <li className="nav-links"><Link to="/profile2"> Profile</Link></li>
 
 
                             <li className="nav-links"><Link to="/myApplied">My Applied</Link></li>
@@ -132,7 +133,7 @@ class Header extends Component {
         return (
             <div>
                 {menu}
-
+                
             </div>
         )
     }

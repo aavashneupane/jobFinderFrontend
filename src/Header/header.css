@@ -1,7 +1,10 @@
 .nav-below{
     font-size:12px;
 }
-
+.navnew{
+    background: rgb(124,120,198);
+    background: linear-gradient(90deg, rgba(124,120,198,1) 0%, rgba(114,225,140,1) 35%, rgba(224,210,210,1) 49%); 
+}
 .NavbarItems{
     
     background: rgb(124,120,198);

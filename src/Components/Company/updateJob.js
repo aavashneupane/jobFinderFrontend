@@ -5,21 +5,15 @@ const axios = require('axios').default;
 class updateJob extends Component {
 
     state = {
-        jobtitle: '',
-        jobdescription: '',
+        jobtitle: "",
+        jobdescription: "",
         config:{
             headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
         },
         id: this.props.match.params.id
     }
-    changeHandler = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-
-    }
-
     componentDidMount() {
+        console.log("id: "+this.props.match.params.id)
         axios.get('http://localhost:91/job/showSingle/' + this.state.id)
             .then((response) => {
                 this.setState({
@@ -34,9 +28,18 @@ class updateJob extends Component {
             })
     }
 
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+
+    }
+
+    
+
     updateJob = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:91/job/update', this.state)
+        axios.put('http://localhost:91/job/update/', this.state)
             .then((response) => {
                 console.log(response)
                 alert("update successfull")
@@ -52,6 +55,8 @@ class updateJob extends Component {
     render() {
         return (
             <form>
+                Jobtitle: {this.state.jobtitle}
+                <h2>{this.state.id}</h2>
                 <p>
                     job title
                     <input type="text"

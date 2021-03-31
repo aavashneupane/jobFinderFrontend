@@ -4,9 +4,9 @@ import { Route, Link } from "react-router-dom";
 const { Component } = require("react");
 const axios = require("axios").default;
 
-class Profile extends Component {
+class Profile2 extends Component {
   state = {
-    users: {},
+    userss: {},
     config: {
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     },
@@ -16,13 +16,13 @@ class Profile extends Component {
   async componentDidMount() {
     await axios({
       method: "get",
-      url: "http://localhost:91/profile1",
+      url: "http://localhost:91/profile2",
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
-        // console.log(response.data)
+         console.log(response.data)
         this.setState({
-          users: response.data,
+          userss: response.data,
         });
       })
       .catch((err) => {
@@ -48,23 +48,26 @@ class Profile extends Component {
       <Container>
         <Row>
           <div>
-            <p>Company Profile</p>
+            <p>Customers Profile</p>
 
             <Card body>
               <div class="card-text-center">
                 <div class="card-header"></div>
                 <div class="card-body">
                   <p>
-                    Name :{this.state.users.firstname}{" "}
-                    {this.state.users.lastname}
+                    Name :{this.state.userss.firstname}{" "}
+                    {this.state.userss.lastname}
                   </p>
-                  <p>Email :{this.state.users.email}</p>
-                  <p>Address:{this.state.users.address}</p>
-                  <p>Age:{this.state.users.age}</p>
-                  <p>Phone:{this.state.users.phone}</p>
-                  <p>company:{this.state.users.company}</p>
-                  <p>foundedin:{this.state.users.foundedin}</p>
-                  <p>Joined in:{this.state.users.createdAt}</p>
+                  <p>Email :{this.state.userss.email}</p>
+                  <p>Address:{this.state.userss.address}</p>
+                  <p>Age:{this.state.userss.age}</p>
+                  <p>Phone:{this.state.userss.phone}</p>
+                  <p>Projects:{this.state.userss.projects}</p>
+                  <p>experience:{this.state.userss.experience}</p>
+                  <p>Joined in:{this.state.userss.createdAt}</p>
+                  <button class="btn btn-warning">
+                  <Link to={"/updateProfile2/" + this.state._id}>Update</Link>
+                      </button>
                 </div>
               </div>
             </Card>
@@ -76,4 +79,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default Profile2;

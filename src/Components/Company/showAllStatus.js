@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col,Card } from 'react-bootstrap';
 import { Route, Link } from 'react-router-dom';
 import { Button } from "../../Header/Button";
 //import { axios } from 'axios';
@@ -25,18 +25,7 @@ class showAllStatus extends Component {
             })
     }
 
-    deleteJob = (pid) => {
-        axios.delete('http://localhost:91/job/delete/' + pid, this.state.config)
-            .then((response) => {
-                console.log(response)
-                alert("Delete successfull")
-            })
-            .catch((err) => {
-                console.log(err.response)
-                alert("Delete unsuccessfull")
-            })
 
-    }
     applyJob = (pid) => {
         axios.post('http://localhost:91/job/applyJob/' + pid, this.state.config)
             .then((response) => {
@@ -54,45 +43,7 @@ class showAllStatus extends Component {
     render() {
         return (
             <Container>
-                <Row>
-
-                    <div>{
-                        this.state.jobs.map((job) => {
-                            return (<div>
-                                
-                                <div className="card-text-center" >
-                                <div className="card-header">
-                                <h5 className="card-title">{job.confirmstatus}</h5>
-                                </div>
-                                <div className="card-body">
-                                    
-                                    <p className="card-text-center">Job ID :{job.jobid}</p>
-                                    <p>Creator:
-                                        {/* {job.jobdescription} */}
-                                        </p>
-                                    
-                                    {/* <p>Creator:{job.creator}</p> */}
-                                    <p>Posted at:{job.createdAt}</p>
-                                    <p><Button onClick={this.deleteJob.bind(this, job._id)}>Delete</Button></p>
-                                    <p><Button onClick={this.applyJob.bind(this, job._id)}>Apply</Button></p>
-                                    {/* <button className="btn btn-warning"><Link to={'/update/' + job._id}>Update</Link></button> */}
-                                </div>
-                                
-                                </div>
-                             
-
-                                
-                                
-                                
-
-                               
-                            </div>
-                            )
-                        })
-                    }
-                    </div>
-                    <Col></Col>
-                </Row>
+               
             </Container>
         )
     }

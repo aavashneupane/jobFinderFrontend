@@ -66,7 +66,7 @@ class Profile2 extends Component {
                   <p>experience:{this.state.userss.experience}</p>
                   <p>Joined in:{this.state.userss.createdAt}</p>
                   <button class="btn btn-warning">
-                  <Link to={"/updateProfile2/" + this.state._id}>Update</Link>
+                  <Link to={"/updateProfile2/" + this.state.userss._id}>Update</Link>
                       </button>
                 </div>
               </div>

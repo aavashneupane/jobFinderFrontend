@@ -49,28 +49,23 @@ class myApplied extends Component {
 
     }
     
-    updateJob = (e)=>{
-        e.preventDefault()
-
-        axios({
-            method: 'put',
-            data:this.state,
-            url: 'http://localhost:91/job/update',
-           // headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        })
-        .then((response)=>{
-            console.log(response)
-            alert("Job update successfull")
-        })
-        .catch((err)=>{
-            console.log(err.response)
-            alert("Job update unsuccessfull")
-        })
-      
-    }
+ 
 
 
     render() {
+
+        // if(job.confirmstatus===false){
+        //     var status=<div>
+        // <p>This job is not confirmed.</p>
+        // </div>
+        // }else{
+        //     var status=
+        //     <div>
+        //     <p>This job is confirmed.</p>
+        //     </div>
+        // }
+            
+
         return (
             <Container>
                 <Row>
@@ -94,6 +89,13 @@ class myApplied extends Component {
                                                 <p>Email:{job.jobid.email}</p>
                                                 <p>Company:{job.jobid.company}</p>
                                                 <p>Posted at:{job.createdAt}</p>
+
+                                                {
+                                                    job.confirmStatus==="Confirmed"
+                                                    ?(<p>Your job application has been confirmed by company.</p>)
+                                                    :(<p>Your job application has not been confirmed by company.</p>)
+                                                }                                                
+                                                
                                                 <p><Button onClick={this.deleteJob.bind(this, job._id)}>Delete</Button></p>
                                                
                                                 

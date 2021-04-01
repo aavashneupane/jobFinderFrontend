@@ -13,6 +13,7 @@ class showAllJob extends Component {
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     },
   };
+
   componentDidMount() {
     axios
       .get("http://localhost:91/job/showall")
@@ -40,6 +41,7 @@ class showAllJob extends Component {
         alert("Delete unsuccessfull");
       });
   };
+
   applyJob = (id) => {
     axios
       .post("http://localhost:91/job/applyJob/" + id, {
@@ -50,7 +52,7 @@ class showAllJob extends Component {
         alert("Job apply successfull");
       })
       .catch((err) => {
-        //console.log(err.response)
+        console.log(err.response)
         alert("Job apply unsuccessfull");
       });
   };
@@ -99,7 +101,7 @@ class showAllJob extends Component {
                       </p>
 
                       <button class="btn btn-warning">
-                        <Link to={"/updateJob/" + job._id}>Update</Link>
+                        <Link to={'/updateJob/'+job._id}>Update</Link>
                       </button>
                     </div>
                   </div>

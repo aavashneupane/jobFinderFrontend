@@ -5,15 +5,15 @@ const axios = require('axios').default;
 class updateJob extends Component {
 
     state = {
-        jobtitle: "",
-        jobdescription: "",
-        config:{
-            headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
-        },
-        id: this.props.match.params.id
+        jobtitle: '',
+        jobdescription: '',
+        // config:{
+        //     headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
+        // },
+        id : this.props.match.params.id
     }
     componentDidMount() {
-        console.log("id: "+this.props.match.params.id)
+        console.log("id: "+this.state.id)
         axios.get('http://localhost:91/job/showSingle/' + this.state.id)
             .then((response) => {
                 this.setState({
@@ -39,7 +39,7 @@ class updateJob extends Component {
 
     updateJob = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:91/job/update/', this.state)
+        axios.put('http://localhost:91/job/update', this.state)
             .then((response) => {
                 console.log(response)
                 alert("update successfull")
@@ -55,14 +55,15 @@ class updateJob extends Component {
     render() {
         return (
             <form>
-                Jobtitle: {this.state.jobtitle}
-                <h2>{this.state.id}</h2>
+                Jobtitle:
+                 {/* {this.state.jobtitle}
+                <h2>{this.state.id}</h2> */}
                 <p>
                     job title
                     <input type="text"
                     value={this.state.jobtitle}
                     name="jobtitle"
-                    onChange={this.changeHandler}
+                    
                     />
                 </p>
                 <p>
@@ -70,7 +71,7 @@ class updateJob extends Component {
                     <input type="text"
                     value={this.state.jobdescription}
                     name="jobdescription"
-                    onChange={this.changeHandler}
+                    
                     />
                 </p>
                 

@@ -37,16 +37,16 @@ class myListings extends Component {
 
     
     deleteJob = (id) => {
-        alert(this.state.config.headers.authorization)
-        // axios.delete('http://localhost:91/job/delete/' + id, this.state.config)
-            // .then((response) => {
-            //     console.log(response)
-            //     alert("Delete successfull")
-            // })
-            // .catch((err) => {
-            //     //console.log(err.response)
-            //     alert("Delete unsuccessfull")
-            // })
+        // alert(this.state.config.headers.authorization)
+        axios.delete('http://localhost:91/job/delete/' + id, this.state.config)
+            .then((response) => {
+                console.log(response)
+                alert("Delete successfull")
+            })
+            .catch((err) => {
+                //console.log(err.response)
+                alert("Delete unsuccessfull")
+            })
 
     }
     

@@ -12,14 +12,14 @@ const axios = require('axios').default;
 class whoApplied extends Component {
 
     state = {
-        confirmStatus: 'Confirmed',
-        deny:'denied',
+        
         applied: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
         id: this.props.match.params.id
     }
+
     inputHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value

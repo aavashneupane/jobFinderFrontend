@@ -22,7 +22,7 @@ class myApplied extends Component {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
             .then((response) => {
-                
+
                 this.setState({
                     appliedjobs: response.data,
 
@@ -35,7 +35,7 @@ class myApplied extends Component {
 
     }
 
-    
+
     deleteJob = (id) => {
         axios.delete('http://localhost:91/job/deleteMyApplied/' + id, this.state.config)
             .then((response) => {
@@ -48,8 +48,8 @@ class myApplied extends Component {
             })
 
     }
-    
- 
+
+
 
 
     render() {
@@ -64,7 +64,7 @@ class myApplied extends Component {
         //     <p>This job is confirmed.</p>
         //     </div>
         // }
-            
+
 
         return (
             <Container>
@@ -91,14 +91,14 @@ class myApplied extends Component {
                                                 <p>Posted at:{job.createdAt}</p>
 
                                                 {
-                                                    job.confirmStatus==="Confirmed"
-                                                    ?(<p>Your job application has been confirmed by company.</p>)
-                                                    :(<p>Your job application has not been confirmed by company.</p>)
-                                                }                                                
-                                                
+                                                    job.confirmStatus === "Confirmed"
+                                                        ? (<p>Your job application has been confirmed by company.</p>)
+                                                        : (<p>Your job application has not been confirmed by company.</p>)
+                                                }
+
                                                 <p><Button onClick={this.deleteJob.bind(this, job._id)}>Delete</Button></p>
-                                               
-                                                
+
+
                                             </div>
 
                                         </div>

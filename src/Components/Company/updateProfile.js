@@ -7,19 +7,19 @@ const axios = require('axios').default;
 class updateProfile extends Component {
 
     state = {
-       
         firstname: '',
         lastname: '',
-        age:'',
-        address:'',
-        phone:'',
-        company:'',
-        foundedin:'',
+        age: '',
+        address: '',
+        phone: '',
+        company: '',
+        foundedin: '',
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
         id: this.props.match.params.id
     }
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -36,9 +36,9 @@ class updateProfile extends Component {
             .then((response) => {
                 console.log(response.data)
                 this.setState({
-                    firstname:response.data.firstname,
-                    lastname:response.data.lastname,
-                    age:response.data.age,
+                    firstname: response.data.firstname,
+                    lastname: response.data.lastname,
+                    age: response.data.age,
                     address: response.data.address,
                     phone: response.data.phone,
                     company: response.data.company,
@@ -51,17 +51,18 @@ class updateProfile extends Component {
     }
 
 
-    updateProfile = (id) => {
-        // alert(this.state.age)
-        
+    updateProfile = (e) => {
+        e.preventDefault();
+        // alert(this.state.id)
+        alert(this.state.firstname)
         axios({
             method: 'put',
-            url: 'http://localhost:91/profile/editProfileCompany/'+id,
+            url: 'http://localhost:91/profile/editProfileCompany/' + this.state.id,
             data: this.state,
+
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
-            
         })
-        //axios.put('http://localhost:91/profile/editProfileCompany'+this.state, this.state.config)
+            //axios.put('http://localhost:91/profile/editProfileCompany'+this.state, this.state.config)
             .then((response) => {
                 console.log(response)
                 alert("update successfull")
@@ -96,13 +97,13 @@ class updateProfile extends Component {
                                             value={this.state.firstname}
                                             name="firstname"
                                             onChange={this.changeHandler}
-                                            ></input>
+                                        ></input>
                                         {" "}
                                         <input type="text"
                                             value={this.state.lastname}
                                             name="lastname"
                                             onChange={this.changeHandler}
-                                             />
+                                        />
                                     </p>
 
                                 </p>
@@ -114,7 +115,7 @@ class updateProfile extends Component {
                                         value={this.state.address}
                                         name="address"
                                         onChange={this.changeHandler}
-                                        />
+                                    />
 
                                 </p>
 
@@ -126,7 +127,7 @@ class updateProfile extends Component {
                                         value={this.state.age}
                                         name="age"
                                         onChange={this.changeHandler}
-                                        />
+                                    />
 
                                 </p>
 
@@ -138,7 +139,7 @@ class updateProfile extends Component {
                                         value={this.state.phone}
                                         name="phone"
                                         onChange={this.changeHandler}
-                                        />
+                                    />
 
                                 </p>
 
@@ -148,7 +149,7 @@ class updateProfile extends Component {
                                         value={this.state.company}
                                         name="company"
                                         onChange={this.changeHandler}
-                                        />
+                                    />
 
                                 </p>
 
@@ -158,16 +159,16 @@ class updateProfile extends Component {
                                         value={this.state.foundedin}
                                         name="foundedin"
                                         onChange={this.changeHandler}
-                                        />
+                                    />
 
                                 </p>
 
                                 <button onClick={this.updateProfile} class="btn btn-warning">Update Profile</button>
                             </form>
 
-                           
 
-                           
+
+
 
                         </div>
                     </div>

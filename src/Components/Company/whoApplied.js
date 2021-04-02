@@ -12,14 +12,19 @@ const axios = require('axios').default;
 class whoApplied extends Component {
 
     state = {
-        confirmStatus: '',
+        confirmStatus: 'Confirmed',
+        deny:'denied',
         applied: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
         id: this.props.match.params.id
     }
-
+    inputHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
     componentDidMount() {
         console.log("this is id: " + this.state.id)
@@ -42,16 +47,19 @@ class whoApplied extends Component {
             })
     };
 
-    confirmMethod = (e) => {
-        e.preventDefault()
+    confirmMethod = (id) => {
+        //  e.preventDefault()
+        
         axios({
             method: 'put',
-            url: 'http://localhost:91/job/approveJob',
-            data: "Confirmed",
-            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+            url: 'http://localhost:91/job/approveJob/'+id,
+            data: {confirmStatus:"Confirmed"},
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            
         })
+            // .put("http://localhost:91/job/approve/" + id, this.state.config)
             .then(response => {
-                console.log(response);
+                console.log("to update"+id);
                 alert("Job has been confirmed")
             })
             .catch(err => {
@@ -62,12 +70,12 @@ class whoApplied extends Component {
 
     };
 
-    denyMethod = (e) => {
-        e.preventDefault()
+    denyMethod = (id) => {
+        //   e.preventDefault();
         axios({
             method: 'put',
-            url: 'http://localhost:91/job/approveJob',
-            data: "denied",
+            url: 'http://localhost:91/job/approveJob/'+id,
+            data: {confirmStatus:"denied"},
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
             .then(response => {
@@ -85,8 +93,6 @@ class whoApplied extends Component {
 
 
     render() {
-
-
 
         return (
             <Container>
@@ -113,31 +119,31 @@ class whoApplied extends Component {
                                                             <p class="card-text-center">Projects :{users.userid.projects}</p>
                                                             <p class="card-text-center">Email :{users.userid.email}</p>
                                                             <p class="card-text-center">Phone :{users.userid.phone}</p>
-                                                            <p class="card-text-center">Type :{users.jobid}</p>
+                                                            <p class="card-text-center">Job ID :{users.jobid}</p>
                                                             <p>Current status for this job: {users.confirmStatus}</p>
 
 
                                                             {
                                                                 users.confirmStatus === "Confirmed"
                                                                     ? (<div>
-                                                                        <button disabled={true} onClick={this.confirmMethod}>Confirm</button> &nbsp;
-                                                                        <button onClick={this.denyMethod} >Deny</button>
+                                                                        <button disabled={true} onClick={this.confirmMethod.bind(this, users._id)}>Confirm</button> &nbsp;
+                                                                        <button onClick={this.denyMethod.bind(this, users._id)} >Deny</button>
 
                                                                     </div>)
                                                                     : users.confirmStatus === "denied"
-                                                                    ?(<div>
-                                                                        <button  onClick={this.confirmMethod}>Confirm</button> &nbsp;
-                                                                        <button disabled={true} onClick={this.denyMethod} >Deny</button>
+                                                                        ? (<div>
+                                                                            <button onClick={this.confirmMethod.bind(this, users._id)}>Confirm</button> &nbsp;
+                                                                            <button disabled={true} onClick={this.denyMethod.bind(this, users._id)} >Deny</button>
 
-                                                                    </div>)
-                                                                   : (<div>
-                                                                        <button onClick={this.confirmMethod}>Confirm</button>&nbsp;
-                                                                        <button onClick={this.denyMethod}>Deny</button>
+                                                                        </div>)
+                                                                        : (<div>
+                                                                            <button onClick={this.confirmMethod.bind(this, users._id)}>Confirm</button>&nbsp;
+                                                                            <button onClick={this.denyMethod.bind(this, users._id)}>Deny</button>
 
-                                                                    </div>)
+                                                                        </div>)
 
                                                             }
-                                                           
+
 
                                                         </div>
                                                     </div>

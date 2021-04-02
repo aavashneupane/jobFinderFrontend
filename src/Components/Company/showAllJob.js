@@ -43,15 +43,22 @@ class showAllJob extends Component {
   };
 
   applyJob = (id) => {
-    axios
-      .post("http://localhost:91/job/applyJob/" + id, {
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
+    // alert(this.state.config.headers.authorization)
+    axios({
+      method: 'post',
+      url: 'http://localhost:91/job/applyJob/'+id,
+      
+      headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
+    })
+    // axios
+    //   .post("http://localhost:91/job/applyJob/" + id, this.state.config)
       .then((response) => {
+        // console.log(this.state.config)
         console.log(response);
         alert("Job apply successfull");
       })
       .catch((err) => {
+        console.log(this.state.config)
         console.log(err.response)
         alert("Job apply unsuccessfull");
       });
@@ -101,7 +108,7 @@ class showAllJob extends Component {
                       </p>
 
                       <button class="btn btn-warning">
-                        <Link to={'/updateJob/'+job._id}>Update</Link>
+                        <Link to={'/updateJob/' + job._id}>Update</Link>
                       </button>
                     </div>
                   </div>

@@ -65,6 +65,9 @@ class Profile extends Component {
                   <p>company:{this.state.users.company}</p>
                   <p>foundedin:{this.state.users.foundedin}</p>
                   <p>Joined in:{this.state.users.createdAt}</p>
+                  <button class="btn btn-warning">
+                    <Link to={"/updateProfile/"+this.state.users._id}>Update</Link>
+                  </button>
                 </div>
               </div>
             </Card>

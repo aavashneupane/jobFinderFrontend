@@ -54,7 +54,7 @@ class updateProfile extends Component {
     updateProfile = (e) => {
         e.preventDefault();
         // alert(this.state.id)
-        alert(this.state.firstname)
+        
         axios({
             method: 'put',
             url: 'http://localhost:91/profile/editProfileCompany/' + this.state.id,
@@ -65,7 +65,7 @@ class updateProfile extends Component {
             //axios.put('http://localhost:91/profile/editProfileCompany'+this.state, this.state.config)
             .then((response) => {
                 console.log(response)
-                alert("update successfull")
+                alert("profile update successfull")
             })
             .catch((err) => {
                 console.log(err.response)

@@ -6,19 +6,25 @@ class updateJob extends Component {
 
     state = {
         jobtitle: '',
+        jobtype: '',
         jobdescription: '',
-        // config:{
-        //     headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
-        // },
+        requiredexperience: '',
+        jobprice: '',
+        config:{
+            headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
+        },
         id : this.props.match.params.id
     }
     componentDidMount() {
-        console.log("id: "+this.state.id)
-        axios.get('http://localhost:91/job/showSingle/' + this.state.id)
+        
+        axios.get('http://localhost:91/job/showSingle/' + this.state.id,this.state.config)
             .then((response) => {
                 this.setState({
                     jobtitle: response.data.jobtitle,
+                    jobtype: response.data.jobtype,
                     jobdescription: response.data.jobdescription,
+                    requiredexperience: response.data.requiredexperience,
+                    jobprice: response.data.jobprice,
                 })
 
 
@@ -39,10 +45,17 @@ class updateJob extends Component {
 
     updateJob = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:91/job/update', this.state)
+        axios({
+            method: 'put',
+            url: 'http://localhost:91/job/update/' + this.state.id,
+            data: this.state,
+
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+        })
+        //axios.put('http://localhost:91/job/update'+this.state)
             .then((response) => {
                 console.log(response)
-                alert("update successfull")
+                alert("job update successfull")
             })
             .catch((err) => {
                 console.log(err.response)
@@ -56,14 +69,21 @@ class updateJob extends Component {
         return (
             <form>
                 Jobtitle:
-                 {/* {this.state.jobtitle}
-                <h2>{this.state.id}</h2> */}
+                
                 <p>
                     job title
                     <input type="text"
                     value={this.state.jobtitle}
                     name="jobtitle"
-                    
+                    onChange={this.changeHandler}
+                    />
+                </p>
+                <p>
+                    job type
+                    <input type="text"
+                    value={this.state.jobtype}
+                    name="jobtype"
+                    onChange={this.changeHandler}
                     />
                 </p>
                 <p>
@@ -71,11 +91,27 @@ class updateJob extends Component {
                     <input type="text"
                     value={this.state.jobdescription}
                     name="jobdescription"
-                    
+                    onChange={this.changeHandler}
+                    />
+                </p>
+                <p>
+                    Required Experience
+                    <input type="text"
+                    value={this.state.requiredexperience}
+                    name="requiredexperience"
+                    onChange={this.changeHandler}
+                    />
+                </p>
+                <p>
+                    jobprice
+                    <input type="text"
+                    value={this.state.jobprice}
+                    name="jobprice"
+                    onChange={this.changeHandler}
                     />
                 </p>
                 
-                <button onClick={this.updateJob}>Update</button>
+                <button onClick={this.updateJob}>Update Job</button>
             </form>
         )
     }

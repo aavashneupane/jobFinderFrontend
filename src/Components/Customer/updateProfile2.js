@@ -7,19 +7,20 @@ const axios = require('axios').default;
 class updateProfile2 extends Component {
 
     state = {
-        userss: {},
         firstname: '',
         lastname: '',
-        age:'',
-        address:'',
-        phone:'',
-        projects:'',
-        experience:'',
+        age: '',
+        address: '',
+        phone: '',
+        projects: '',
+        experience: '',
+        foundedin: '',
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
         id: this.props.match.params.id
     }
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -36,7 +37,13 @@ class updateProfile2 extends Component {
             .then((response) => {
                 console.log(response.data)
                 this.setState({
-                    userss: response.data,
+                    firstname: response.data.firstname,
+                    lastname: response.data.lastname,
+                    age: response.data.age,
+                    address: response.data.address,
+                    phone: response.data.phone,
+                    projects: response.data.projects,
+                    experience: response.data.experience
                 });
             })
             .catch((err) => {
@@ -44,15 +51,27 @@ class updateProfile2 extends Component {
             });
     }
 
+
     updateProfile = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:91/profile/editProfileCustomer', this.state, this.state.config)
+        // alert(this.state.id)
+
+        axios({
+            method: 'put',
+            url: 'http://localhost:91/profile/editProfileCustomer/' + this.state.id,
+            data: this.state,
+
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+        })
+            
             .then((response) => {
                 console.log(response)
-                alert("update successfull")
+                alert("profile update successfull")
+                window.location.href = '/profile2';
             })
             .catch((err) => {
                 console.log(err.response)
+                console.log("no update")
                 alert("update unsuccessfull")
             })
     }
@@ -62,7 +81,7 @@ class updateProfile2 extends Component {
     render() {
         return (
             <div>
-                <p>Update Customers Profile</p>
+                <p>Update Customer Profile</p>
 
                 <Card body>
                     <div class="card-text-center">
@@ -80,13 +99,13 @@ class updateProfile2 extends Component {
                                             value={this.state.firstname}
                                             name="firstname"
                                             onChange={this.changeHandler}
-                                            placeholder={this.state.userss.firstname} ></input>
+                                        ></input>
                                         {" "}
                                         <input type="text"
                                             value={this.state.lastname}
                                             name="lastname"
                                             onChange={this.changeHandler}
-                                            placeholder={this.state.userss.lastname} />
+                                        />
                                     </p>
 
                                 </p>
@@ -98,7 +117,7 @@ class updateProfile2 extends Component {
                                         value={this.state.address}
                                         name="address"
                                         onChange={this.changeHandler}
-                                        placeholder={this.state.userss.address} />
+                                    />
 
                                 </p>
 
@@ -110,7 +129,7 @@ class updateProfile2 extends Component {
                                         value={this.state.age}
                                         name="age"
                                         onChange={this.changeHandler}
-                                        placeholder={this.state.userss.age} />
+                                    />
 
                                 </p>
 
@@ -122,7 +141,7 @@ class updateProfile2 extends Component {
                                         value={this.state.phone}
                                         name="phone"
                                         onChange={this.changeHandler}
-                                        placeholder={this.state.userss.phone} />
+                                    />
 
                                 </p>
 
@@ -132,7 +151,7 @@ class updateProfile2 extends Component {
                                         value={this.state.projects}
                                         name="projects"
                                         onChange={this.changeHandler}
-                                        placeholder={this.state.userss.projects} />
+                                    />
 
                                 </p>
 
@@ -142,16 +161,16 @@ class updateProfile2 extends Component {
                                         value={this.state.experience}
                                         name="experience"
                                         onChange={this.changeHandler}
-                                        placeholder={this.state.userss.experience} />
+                                    />
 
                                 </p>
 
                                 <button onClick={this.updateProfile} class="btn btn-warning">Update Profile</button>
                             </form>
 
-                           
 
-                           
+
+
 
                         </div>
                     </div>

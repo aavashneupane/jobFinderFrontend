@@ -56,6 +56,7 @@ class updateJob extends Component {
             .then((response) => {
                 console.log(response)
                 alert("job update successfull")
+                window.location.reload()
             })
             .catch((err) => {
                 console.log(err.response)

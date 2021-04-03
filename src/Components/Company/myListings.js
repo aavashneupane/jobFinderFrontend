@@ -42,6 +42,7 @@ class myListings extends Component {
             .then((response) => {
                 console.log(response)
                 alert("Delete successfull")
+                window.location.reload()
             })
             .catch((err) => {
                 //console.log(err.response)
@@ -49,28 +50,7 @@ class myListings extends Component {
             })
 
     }
-    
-    updateJob = (e)=>{
-        e.preventDefault()
-
-        axios({
-            method: 'put',
-            data:this.state,
-            url: 'http://localhost:91/job/update',
-           // headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        })
-        .then((response)=>{
-            console.log(response)
-            alert("Job update successfull")
-        })
-        .catch((err)=>{
-            console.log(err.response)
-            alert("Job update unsuccessfull")
-        })
-
-        
-        
-    }
+  
 
 
     render() {

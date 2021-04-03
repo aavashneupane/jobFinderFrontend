@@ -66,6 +66,7 @@ class updateProfile extends Component {
             .then((response) => {
                 console.log(response)
                 alert("profile update successfull")
+                window.location.href = '/profile';
             })
             .catch((err) => {
                 console.log(err.response)

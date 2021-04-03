@@ -41,6 +41,7 @@ class myApplied extends Component {
             .then((response) => {
                 console.log(response)
                 alert("Delete successfull")
+                window.location.reload()
             })
             .catch((err) => {
                 //console.log(err.response)

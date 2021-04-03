@@ -36,7 +36,7 @@ class Body extends Component {
               <Route path='/profile' component={profile} />
               <Route path='/profile2' component={profile2} />
               <Route path='/updateProfile/:id' component={updateProfile} />
-              <Route path='/updateProfile2:id' component={updateProfile2} />
+              <Route path='/updateProfile2/:id' component={updateProfile2} />
               <Route path='/myListings' component={myListings} />
               <Route path='/myApplied' component={myApplied} />
               <Route path='/whoApplied/:id' component={whoApplied} />

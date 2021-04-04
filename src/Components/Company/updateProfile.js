@@ -59,7 +59,6 @@ class updateProfile extends Component {
             method: 'put',
             url: 'http://localhost:91/profile/editProfileCompany/' + this.state.id,
             data: this.state,
-
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
         })
             //axios.put('http://localhost:91/profile/editProfileCompany'+this.state, this.state.config)

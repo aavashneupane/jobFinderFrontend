@@ -2,7 +2,7 @@
 import './header.css';
 import { Button } from "./Button";
 import { Link } from 'react-router-dom';
-import { Navbar,Nav,NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 const { Component } = require("react");
 
 
@@ -19,7 +19,7 @@ class Header extends Component {
     }
 
     render() {
-       
+
         if (localStorage.getItem('token') && localStorage.getItem('role') === 'Company') {
             var menu =
                 <div>
@@ -41,8 +41,8 @@ class Header extends Component {
                             <li className="nav-links"><Link to="/myListings">My Listings</Link></li>
 
                             <div className="text-dark">
-                            <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
-                            <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
+                                <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
+                                <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
                             </div>
 
                             <Button onClick={this.logout}>Log out</Button>
@@ -61,7 +61,7 @@ class Header extends Component {
         else if (localStorage.getItem('token') && localStorage.getItem('role') === 'Customer') {
             var menu =
                 <div>
-                    
+
                     <nav className="NavbarItems">
                         <p></p>
                         <h1 className="navbar-logo">Job Finder<i className="fab fa-react"></i></h1>
@@ -81,8 +81,8 @@ class Header extends Component {
 
                             <li className="nav-links"><Link to="/myApplied">My Applied</Link></li>
                             <div className="text-dark">
-                            <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
-                            <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
+                                <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
+                                <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
                             </div>
                             <Button onClick={this.logout}>Log out</Button>
 
@@ -133,7 +133,7 @@ class Header extends Component {
         return (
             <div>
                 {menu}
-                
+
             </div>
         )
     }

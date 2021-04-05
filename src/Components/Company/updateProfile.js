@@ -14,6 +14,7 @@ class updateProfile extends Component {
         phone: '',
         company: '',
         foundedin: '',
+        photo: '',
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
@@ -25,6 +26,11 @@ class updateProfile extends Component {
             [e.target.name]: e.target.value
         })
 
+    }
+    fileHandler = (e) => {
+        this.setState({
+            photo: e.target.files[0]
+        })
     }
 
     async componentDidMount() {
@@ -54,11 +60,23 @@ class updateProfile extends Component {
     updateProfile = (e) => {
         e.preventDefault();
         // alert(this.state.id)
-        
+        const data = new FormData() // new line
+        var image = this.refs.photo.files[0];
+        data.append('firstname', this.state.firstname)
+        data.append('lastname', this.state.lastname)
+        data.append('age', this.state.age)
+        data.append('address', this.state.address)
+        data.append('phone', this.state.phone)
+        data.append('company', this.state.company)
+        data.append('foundedin', this.state.foundedin)
+
+
+        data.append('photo', image)
+
         axios({
             method: 'put',
             url: 'http://localhost:91/profile/editProfileCompany/' + this.state.id,
-            data: this.state,
+            data: data,
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
         })
             //axios.put('http://localhost:91/profile/editProfileCompany'+this.state, this.state.config)
@@ -162,6 +180,11 @@ class updateProfile extends Component {
                                     />
 
                                 </p>
+                                <p>
+                                    
+                                    <input type="file" name="photo" value={this.state.photo} ref="photo" />
+                                </p>
+
 
                                 <button onClick={this.updateProfile} class="btn btn-warning">Update Profile</button>
                             </form>

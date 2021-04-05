@@ -83,7 +83,7 @@ class myApplied extends Component {
                                                 <h5 class="card-title">{job.jobid.jobtitle}</h5>
                                             </div>
                                             <div class="card-body">
-
+                                            <img src={`http://localhost:91/${job.jobid.photo}`} className="img-fluid" style={{ height: "400px" }} />
                                                 <p class="card-text-center">Type :{job.jobid.jobtype}</p>
                                                 <p>Description:{job.jobid.jobdescription}</p>
                                                 <p>Required experience:{job.jobid.requiredexperience}</p>

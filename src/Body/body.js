@@ -4,6 +4,7 @@ import {BrowserRouter as Router,Switch,Route } from 'react-router-dom'
 import {Container,Row,Col} from 'react-bootstrap';
 import jobAdd from '../Components/Company/jobAdd';
 import showAllJob from '../Components/Company/showAllJob';
+import showcontactus from '../Components/admin/showcontactus';
 import myListings from '../Components/Company/myListings';
 import myApplied from '../Components/Customer/myApplied';
 import profile2 from './profile2';
@@ -34,6 +35,7 @@ class Body extends Component {
               <Route path='/contact' component={contact} />
               <Route path='/jobAdd' component={jobAdd} />
               <Route path='/showAllJob' component={showAllJob} />
+              <Route path='/showcontactus' component={showcontactus} />
               <Route path='/updateJob/:id' component={updateJob} />
               <Route path='/profile' component={profile} />
               <Route path='/profile2' component={profile2} />

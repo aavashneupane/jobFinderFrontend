@@ -54,10 +54,13 @@ class Profile2 extends Component {
               <div class="card-text-center">
                 <div class="card-header"></div>
                 <div class="card-body">
+                <img src={`http://localhost:91/${this.state.userss.photo}`} className="img-fluid" style={{ height: "400px" }} />
                   <p>
                     Name :{this.state.userss.firstname}{" "}
                     {this.state.userss.lastname}
                   </p>
+                  <p>Short bio of user :{this.state.userss.userbio}</p>
+                  <p>Resume Link:<a href={`http://localhost:91/${this.state.userss.resume}`} target="_blank">Click to view my resume</a></p>
                   <p>Email :{this.state.userss.email}</p>
                   <p>Address:{this.state.userss.address}</p>
                   <p>Age:{this.state.userss.age}</p>

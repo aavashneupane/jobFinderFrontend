@@ -111,8 +111,10 @@ class whoApplied extends Component {
                                                 <Card body>
                                                     <div class="card-text-center">
                                                         <div class="card-header">
+                                                        <img src={`http://localhost:91/${users.userid.photo}`} className="img-fluid" style={{ height: "400px" }} />
                                                             <h5 class="card-title">{users.userid.firstname} {users.userid.lastname}</h5>
-
+                                                            <h5 class="card-title">User description: {users.userid.userbio}</h5>
+                                                            <p>Resume Link:<a href={`http://localhost:91/${users.userid.resume}`} target="_blank">Click to view the resume</a></p>
                                                         </div>
                                                         <div class="card-body">
                                                             <p class="card-text-center">Experience :{users.userid.experience}</p>

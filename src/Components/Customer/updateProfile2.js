@@ -14,7 +14,9 @@ class updateProfile2 extends Component {
         phone: '',
         projects: '',
         experience: '',
-        foundedin: '',
+        photo: '',
+        resume:'',
+        userbio: '',
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
@@ -27,7 +29,16 @@ class updateProfile2 extends Component {
         })
 
     }
-
+    fileHandler = (e) => {
+        this.setState({
+            photo: e.target.files[0]
+        })
+    }
+    uploadHandler = (e) => {
+        this.setState({
+            resume: e.target.files[0]
+        })
+    }
     async componentDidMount() {
         await axios({
             method: "get",
@@ -39,9 +50,12 @@ class updateProfile2 extends Component {
                 this.setState({
                     firstname: response.data.firstname,
                     lastname: response.data.lastname,
+                    userbio: response.data.userbio,
                     age: response.data.age,
                     address: response.data.address,
                     phone: response.data.phone,
+                    photo: response.data.photo,
+                    resume: response.data.resume,
                     projects: response.data.projects,
                     experience: response.data.experience
                 });
@@ -55,11 +69,23 @@ class updateProfile2 extends Component {
     updateProfile = (e) => {
         e.preventDefault();
         // alert(this.state.id)
-
+        const data = new FormData() // new line
+        var image = this.refs.photo.files[0];
+        //var cv = this.refs.resume.files[0];
+        data.append('firstname', this.state.firstname)
+        data.append('lastname', this.state.lastname)
+        data.append('userbio', this.state.userbio)
+        data.append('age', this.state.age)
+        data.append('address', this.state.address)
+        data.append('phone', this.state.phone)
+        data.append('resume', this.state.resume)
+        data.append('projects', this.state.projects)
+        data.append('experience', this.state.experience)
+        data.append('photo', image)
         axios({
             method: 'put',
             url: 'http://localhost:91/profile/editProfileCustomer/' + this.state.id,
-            data: this.state,
+            data: data,
 
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
         })
@@ -103,6 +129,17 @@ class updateProfile2 extends Component {
                                             onChange={this.changeHandler}
                                         />
                                     </p>
+
+                                </p>
+                                <p>
+                                    User description :
+
+
+                                        <input type="text"
+                                        value={this.state.userbio}
+                                        name="userbio"
+                                        onChange={this.changeHandler}
+                                    />
 
                                 </p>
                                 <p>
@@ -160,6 +197,13 @@ class updateProfile2 extends Component {
                                     />
 
                                 </p>
+                                <p>
+                                    Photo<input type="file" name="photo" ref="photo" />
+                                </p>
+                                <p>
+                                    Resume<input type="file" name="resume" onChange={this.uploadHandler} />
+                                </p>
+
 
                                 <button onClick={this.updateProfile} class="btn btn-warning">Update Profile</button>
                             </form>

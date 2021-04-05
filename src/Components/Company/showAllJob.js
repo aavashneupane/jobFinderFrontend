@@ -94,6 +94,7 @@ class showAllJob extends Component {
                       <h5 class="card-title">{job.jobtitle}</h5>
                     </div>
                     <div class="card-body">
+                    <img src={`http://localhost:91/${job.photo}`} className="img-fluid" style={{ height: "400px" }} />
                       <p class="card-text-center">Type :{job.jobtype}</p>
                       <p>Description:{job.jobdescription}</p>
                       <p>Required experience:{job.requiredexperience}</p>
@@ -136,6 +137,7 @@ class showAllJob extends Component {
                       <h5 class="card-title">{job.jobtitle}</h5>
                     </div>
                     <div class="card-body">
+                    <img src={`http://localhost:91/${job.photo}`} className="img-fluid" style={{ height: "400px" }} />
                       <p class="card-text-center">Type :{job.jobtype}</p>
                       <p>Description:{job.jobdescription}</p>
                       <p>Required experience:{job.requiredexperience}</p>

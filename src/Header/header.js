@@ -112,12 +112,13 @@ class Header extends Component {
 
                             <li className="nav-links"><Link to="/"> Home</Link></li>
                             <li className="nav-links"><Link to="/aboutus"> About us</Link></li>
-                            <li className="nav-links"><Link to="/contact">Contact us</Link></li>
+                            <li className="nav-links"><Link to="/showAllJob"> Show All Job</Link></li>
+                            <li className="nav-links"><Link to="/showcontactus">Show Messages</Link></li>
                             <div className="text-dark">
                                 <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
                                 <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
                             </div>
-
+                        
                         </ul>
 
 

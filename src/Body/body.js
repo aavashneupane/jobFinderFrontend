@@ -15,6 +15,7 @@ import profile from './profile';
 import updateProfile from '../Components/Company/updateProfile';
 
 import aboutus from '../Components/Common/aboutus';
+import contact from '../Components/Common/contact';
 const {Component}=require("react");
 
 
@@ -30,6 +31,7 @@ class Body extends Component {
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
               <Route path='/aboutus' component={aboutus} />
+              <Route path='/contact' component={contact} />
               <Route path='/jobAdd' component={jobAdd} />
               <Route path='/showAllJob' component={showAllJob} />
               <Route path='/updateJob/:id' component={updateJob} />

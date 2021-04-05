@@ -54,6 +54,9 @@ class Profile extends Component {
               <div class="card-text-center">
                 <div class="card-header"></div>
                 <div class="card-body">
+          
+                  <img src={`http://localhost:91/${this.state.users.photo}`} className="img-fluid" style={{ height: "400px" }} />
+                  
                   <p>
                     Name :{this.state.users.firstname}{" "}
                     {this.state.users.lastname}

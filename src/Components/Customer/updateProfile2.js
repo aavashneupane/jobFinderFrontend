@@ -63,7 +63,7 @@ class updateProfile2 extends Component {
 
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
         })
-            
+
             .then((response) => {
                 console.log(response)
                 alert("profile update successfull")
@@ -93,11 +93,7 @@ class updateProfile2 extends Component {
                                 <p>
                                     <p>
                                         Name :
-
-
-                                        <input type="text"
-                                            value={this.state.firstname}
-                                            name="firstname"
+                                 <input type="text" value={this.state.firstname} name="firstname"
                                             onChange={this.changeHandler}
                                         ></input>
                                         {" "}

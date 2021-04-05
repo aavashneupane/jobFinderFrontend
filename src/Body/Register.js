@@ -30,7 +30,9 @@ class Register extends Component {
 
     sendUserInfo = (e) => {
         e.preventDefault()
+
         const data = new FormData() // new line
+        var image=this.refs.photo.files[0];
         data.append('firstname', this.state.firstname)
         data.append('lastname', this.state.lastname)
         data.append('age', this.state.age)
@@ -38,9 +40,9 @@ class Register extends Component {
         data.append('phone', this.state.phone)
         data.append('email', this.state.email)
         data.append('password', this.state.password)
-        data.append('photo', this.state.photo)
+        data.append('photo', image)
         data.append('role', this.state.role)
-
+        
         
         
         axios({
@@ -99,7 +101,7 @@ class Register extends Component {
                             onChange={this.inputHandler} /></p>
 
                         <p>
-                            <input type="file" name="photo" onChange={this.fileHandler} />
+                            <input type="file" name="photo" ref="photo"/>
                         </p>
 
                         <Button onClick={this.sendUserInfo}>Submit</Button>

@@ -33,6 +33,7 @@ class Login extends Component {
                 localStorage.setItem('role', response.data.role)
                 localStorage.setItem('firstname', response.data.firstName)
                 localStorage.setItem('lastname', response.data.lastName)
+                localStorage.setItem('photo', response.data.photo)
                 window.location.href = '/showAllJob';
                 //console.log(response.data);
             })

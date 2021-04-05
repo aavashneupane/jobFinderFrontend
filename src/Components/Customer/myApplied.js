@@ -94,7 +94,10 @@ class myApplied extends Component {
                                                 {
                                                     job.confirmStatus === "Confirmed"
                                                         ? (<p>Your job application has been confirmed by company.</p>)
-                                                        : (<p>Your job application has not been confirmed by company.</p>)
+                                                        : job.confirmStatus === "denied"
+                                                        ? (<p>Your job application has been denied by the company.</p>)
+
+                                                        : (<p>Your job application is not reviewed by company.</p>)
                                                 }
 
                                                 <p><Button onClick={this.deleteJob.bind(this, job._id)}>Delete</Button></p>

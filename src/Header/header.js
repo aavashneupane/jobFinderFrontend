@@ -32,7 +32,7 @@ class Header extends Component {
 
                             <li className="nav-links"><Link to="/"> Home</Link></li>
                             <li className="nav-links"><Link to="/aboutus"> About us</Link></li>
-
+                            <li className="nav-links"><Link to="/contact">Contact us</Link></li>
 
 
 
@@ -72,6 +72,7 @@ class Header extends Component {
 
                             <li className="nav-links"><Link to="/"> Home</Link></li>
                             <li className="nav-links"><Link to="/aboutus"> About us</Link></li>
+                            <li className="nav-links"><Link to="/contact">Contact us</Link></li>
                             <li className="nav-links"><Link to="/showAllJob"> Show All Job</Link></li>
 
 
@@ -99,7 +100,36 @@ class Header extends Component {
                     </nav>
                 </div>
         }
-        else {
+        else if (localStorage.getItem('token') && localStorage.getItem('role') === 'Admin') {
+            var menu =
+                <div>
+                    <nav className="NavbarItems">
+                        <h1 className="navbar-logo">Job Finder<i className="fab fa-react"></i></h1>
+                        <div className="menu-icon" onClick={this.handleClick}>
+                            <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+                        </div>
+                        <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+
+                            <li className="nav-links"><Link to="/"> Home</Link></li>
+                            <li className="nav-links"><Link to="/aboutus"> About us</Link></li>
+                            <li className="nav-links"><Link to="/contact">Contact us</Link></li>
+                            <div className="text-dark">
+                                <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
+                                <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
+                            </div>
+
+                        </ul>
+
+
+                        <div>
+                        <Button onClick={this.logout}>Log out</Button>
+                        </div>
+
+
+
+                    </nav>
+                </div>
+        } else {
             var menu =
                 <div>
                     <nav className="NavbarItems">

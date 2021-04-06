@@ -60,41 +60,91 @@ class jobAdd extends Component {
     };
     render() {
         return (
-            <div>
-                This is add Job.
-                <form>
-                    <p>
-                        <label>Job Title</label>
-                        <input type="text" value={this.state.jobtitle} name="jobtitle" onChange={this.inputHandler} />
-                    </p>
-                    <p>
-                        <label>Job type</label>
-                        <input type="text" value={this.state.jobtype} name="jobtype" onChange={this.inputHandler} />
-                    </p>
-                    <p>
-                        <label>Job description</label>
-                        <input type="text" value={this.state.jobdescription} name="jobdescription" onChange={this.inputHandler} />
-                    </p>
+            
+            <div className="auth-wrapper-job">
+                <div className="auth-inner-job">
+                    <div className="job-form">
+                        <div>
+                            <div className="job-title">
+                                ADD JOB 
+                            </div>
+                            <form>
+                                <div className="form-group">
+                                    <label>Job Title</label>
+                                    <input type="text" className="form-control" placeholder="Enter Enter email" value={this.state.jobtitle} name="jobtitle"
+                                        onChange={this.inputHandler}/>
+                                </div>
+                                
+                                <div className="form-group">
+                                    <label>Job Type</label>
+                                    <input type="text" className="form-control" placeholder="Enter Job Type" value={this.state.jobtype} name="jobtype"
+                                        onChange={this.inputHandler}/>
+                                </div>
 
-                    <p>
-                        <label>Required experience</label>
-                        <input type="text" value={this.state.requiredexperience} name="requiredexperience" onChange={this.inputHandler} />
-                    </p>
-                    <p>
-                        <label>Job price</label>
-                        <input type="text" value={this.state.jobprice} name="jobprice" onChange={this.inputHandler} />
-                    </p>
-                    <p>
-                            <input type="file" name="photo" ref="photo"/>
-                        </p>
+                                <div className="form-group">
+                                    <label>Job Title</label>
+                                    <input type="text" className="form-control" placeholder="Enter Job Description" value={this.state.jobdescription} name="jobdescription"
+                                        onChange={this.inputHandler}/>
+                                </div>
 
-                    <p>
-                        <Button onClick={this.jobAddMethod}>Add Job</Button>
+                                <div className="form-group">
+                                    <label>Required Experience</label>
+                                    <input type="text" className="form-control" placeholder="Enter Required Experience" value={this.state.requiredexperience} name="requiredexperience"
+                                        onChange={this.inputHandler}/>
+                                </div>
 
-                    </p>
-                </form>
+                                <div className="form-group">
+                                    <label>Job Price</label>
+                                    <input type="text" className="form-control" placeholder="Enter Job Price" value={this.state.jobprice} name="jobprice"
+                                        onChange={this.inputHandler}/>
+                                </div>
+                                <p>
+                                    <input type="file" name="photo" ref="photo"/>
+                                </p>
+                                <p>
+                                    <Button variant="danger" onClick={this.jobAddMethod}>Add Job</Button>
 
+                                </p>
+                            
+
+                                
+                                {/* <p>
+                                    <label>Job Title</label>
+                                    <input type="text" value={this.state.jobtitle} name="jobtitle" onChange={this.inputHandler} />
+                                </p>
+                                <p>
+                                    <label>Job type</label>
+                                    <input type="text" value={this.state.jobtype} name="jobtype" onChange={this.inputHandler} />
+                                </p>
+                                <p>
+                                    <label>Job description</label>
+                                    <input type="text" value={this.state.jobdescription} name="jobdescription" onChange={this.inputHandler} />
+                                </p>
+
+                                <p>
+                                    <label>Required experience</label>
+                                    <input type="text" value={this.state.requiredexperience} name="requiredexperience" onChange={this.inputHandler} />
+                                </p>
+                                <p>
+                                    <label>Job price</label>
+                                    <input type="text" value={this.state.jobprice} name="jobprice" onChange={this.inputHandler} />
+                                </p>
+                                <p>
+                                        <input type="file" name="photo" ref="photo"/>
+                                    </p>
+
+                                <p>
+                                    <Button onClick={this.jobAddMethod}>Add Job</Button>
+
+                                </p> */}
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
             </div>
+
+           
         )
     }
 

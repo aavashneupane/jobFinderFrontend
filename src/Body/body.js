@@ -14,7 +14,7 @@ import whoApplied from '../Components/Company/whoApplied';
 import updateJob from '../Components/Company/updateJob';
 import profile from './profile';
 import updateProfile from '../Components/Company/updateProfile';
-
+import home from '../Components/Common/home';
 import aboutus from '../Components/Common/aboutus';
 import contact from '../Components/Common/contact';
 const {Component}=require("react");
@@ -28,7 +28,7 @@ class Body extends Component {
     render() {
         return(
           <Container>
-            
+              <Route path="/" exact component={home}/>
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
               <Route path='/aboutus' component={aboutus} />

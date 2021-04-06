@@ -1,7 +1,7 @@
 import { Button } from "../Header/Button";
-import { Redirect } from 'react-router-dom';
+import { Redirect,Link } from 'react-router-dom';
 import { Card, Form } from 'react-bootstrap';
-
+import './login.css';
 const { Component } = require("react");
 const axios = require('axios').default;
 
@@ -55,39 +55,42 @@ class Login extends Component {
             return <Redirect to='/showAllJob' />
         }
         return (
-           
 
-<div>
-            <div className="auth-wrapper">
-                <div className="auth-inner">
-                    <div className="login-form">
 
-                        <form>
-                            <h3>Sign In</h3>
+            <div className="login">
 
-                            <div className="form-group">
-                                <label>Email address</label>
-                                <input type="email" className="form-control" placeholder="Enter email" value={this.state.email} name="email"
-                                    onChange={this.inputHandler}/>
+                <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+                    <div class="card card0 border-0">
+                        <div class="row d-flex">
+                            <div class="col-lg-6">
+                                <div class="card1 pb-5">
+                                    <div class="row">
+                                        <div class="row px-5 justify-content-center mt-3 mb-5 border-line"> <h1>Login</h1> </div>
+                                    </div>
+                                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src={`http://localhost:91/images/login.jpg`} class="image" /> </div>
+                                </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="card2 card border-0 px-4 py-5">
+                                <h2>Enter your details here</h2>
+                                <p></p><p></p><p></p><p></p><p></p>
+                                    <div class="row px-3"> <label class="mb-1">
+                                        <h6 class="mb-0 text-sm">Email Address</h6>
+                                    </label> <input class="mb-4" type="text" name="email" class="form-rounded" placeholder="Enter a valid email address" value={this.state.email} name="email" onChange={this.inputHandler} /> </div>
+                                    <div class="row px-3"> <label class="mb-1">
+                                        <h6 class="mb-0 text-sm">Password</h6>
+                                    </label> <input type="password" name="password" placeholder="Enter password" class="form-rounded" value={this.state.password} name="password" onChange={this.inputHandler}/> </div>
+                                    <div class="row px-3 mb-4">
 
-                            <div className="form-group">
-                                <label>Password</label>
-                                <input type="password" className="form-control" placeholder="Enter password" value={this.state.password} name="password"
-                    onChange={this.inputHandler} />
+                                    </div>
+                                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" onClick={this.submitLogin}>Login</button> </div>
+                                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger "><Link to='/register'>Register</Link></a></small> </div>
+                                </div>
                             </div>
+                        </div>
 
-                            
-
-                         <Button variant="primary" type="submit" onClick={this.submitLogin}>
-                        Login
-                          </Button>
-
-
-                        </form>
                     </div>
                 </div>
-            </div>
 
             </div>
         )

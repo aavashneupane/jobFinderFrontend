@@ -60,7 +60,6 @@ class myListings extends Component {
 
                     <div>
                         <p></p>
-
                         {
                             this.state.jobs.map((job) => {
                                 return (<div>
@@ -85,13 +84,6 @@ class myListings extends Component {
                                             </div>
 
                                         </div>
-
-
-
-
-
-
-
                                     </Card>
                                     <p></p>
                                 </div>

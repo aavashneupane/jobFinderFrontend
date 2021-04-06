@@ -118,12 +118,12 @@ class Header extends Component {
                                 <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
                                 <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
                             </div>
-                        
+
                         </ul>
 
 
                         <div>
-                        <Button onClick={this.logout}>Log out</Button>
+                            <Button onClick={this.logout}>Log out</Button>
                         </div>
 
 
@@ -164,6 +164,7 @@ class Header extends Component {
 
         return (
             <div>
+                
                 {menu}
 
             </div>

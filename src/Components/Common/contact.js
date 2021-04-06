@@ -100,30 +100,38 @@ class contact extends Component {
         return (
 
 
+            <div className="auth-wrapper-contact">
+                <div className="auth-inner-contact">
+                    <div className="contact-form">
 
-            <div className="contact">
+                    <div className="contact">
 
-                <div class="container">
-                    <div>
-                        <h2>Contact Us</h2>
-                        <p>Swing by for a cup of coffee, or leave us a message:</p>
-                    </div>
-                    <div class="row">
-                        <div class="column">
-                            <img src={`http://localhost:91/images/user.jpg`} alt="Jane" style={{ width: "325px" }} ></img>
+                        <div class="container">
+                            <div>
+                                <h2>Contact Us</h2>
+                                <p>Swing by for a cup of coffee, or leave us a message:</p>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <img src={`http://localhost:91/images/user.jpg`} alt="Jane" style={{ width: "325px" }} ></img>
+                                </div>
+                                <div class="column">
+
+                                    {status}
+
+
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="column">
 
-                            {status}
-
+</div>
 
 
-                        </div>
                     </div>
                 </div>
-
             </div>
-
+            
 
 
         )

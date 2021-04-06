@@ -68,10 +68,58 @@ class updateJob extends Component {
 
     render() {
         return (
-            <form>
-                Jobtitle:
+            <div className="auth-wrapper-register">
+                <div className="auth-inner-register">
+                    <div className="register-form">
+                    <form>
+                <h1>Update Job</h1>
+
+                <div className="form-group">
+                    <label>Job Title</label>
+                    <input type="text" 
+                     className="form-control" 
+                     value={this.state.jobtitle} 
+                     name="jobtitle"
+                     onChange={this.inputHandler}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Job Type</label>
+                    <input type="text" 
+                     className="form-control" 
+                     value={this.state.jobtype} 
+                     name="jobtype"
+                     onChange={this.inputHandler}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Job Description</label>
+                    <input type="text" 
+                     className="form-control" 
+                     value={this.state.jobdescription} 
+                     name="jobdescription"
+                     onChange={this.inputHandler}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Required experience</label>
+                    <input type="text" 
+                     className="form-control" 
+                     value={this.state.requiredexperience} 
+                     name="requiredexperience"
+                     onChange={this.inputHandler}/>
+                </div>
+
+                <div className="form-group">
+                    <label>Job Price</label>
+                    <input type="text" 
+                     className="form-control" 
+                     value={this.state.jobprice} 
+                     name="jobprice"
+                     onChange={this.inputHandler}/>
+                </div>
                 
-                <p>
+                {/* <p>
                     job title
                     <input type="text"
                     value={this.state.jobtitle}
@@ -110,10 +158,14 @@ class updateJob extends Component {
                     name="jobprice"
                     onChange={this.changeHandler}
                     />
-                </p>
+                </p> */}
                 
                 <button onClick={this.updateJob}>Update Job</button>
             </form>
+                        </div>
+                    </div>
+            </div>
+            
         )
     }
 

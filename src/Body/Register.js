@@ -1,5 +1,6 @@
 import { Button } from "../Header/Button";
 import { Component } from "react";
+import { Redirect, Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 const axios = require('axios').default;
 
@@ -32,7 +33,7 @@ class Register extends Component {
         e.preventDefault()
 
         const data = new FormData() // new line
-        var image=this.refs.photo.files[0];
+        var image = this.refs.photo.files[0];
         data.append('firstname', this.state.firstname)
         data.append('lastname', this.state.lastname)
         data.append('age', this.state.age)
@@ -42,16 +43,16 @@ class Register extends Component {
         data.append('password', this.state.password)
         data.append('photo', image)
         data.append('role', this.state.role)
-        
-        
-        
+
+
+
         axios({
             method: 'post',
             url: 'http://localhost:91/user/add',
             data: data,
-            headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
-          })
-        //axios.post("http://localhost:91/user/add", data)
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+        })
+            //axios.post("http://localhost:91/user/add", data)
             .then(response => {
                 console.log(response);
                 //console.log(response.data);
@@ -61,7 +62,7 @@ class Register extends Component {
             .catch(err => {
                 console.log(err.response);
                 alert("Registration unsuccessfull")
-        //        window.location.href = '/register';
+                //        window.location.href = '/register';
             })
 
     };
@@ -71,45 +72,63 @@ class Register extends Component {
 
         return (
             <div>
-                <p></p>
-                <Card body>
-                    <h2>Register</h2>
+                <div className="login">
 
-                    <form>
-                        <p>Firstname<input type="text" value={this.state.firstname} name="firstname"
-                            onChange={this.inputHandler} /></p>
+                    <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+                        <div class="card card0 border-0">
+                            <div class="row d-flex">
+                                <div class="col-lg-6">
+                                    <div class="card1 pb-5">
+                                        <div class="row">
+                                            <div class="row px-5 justify-content-center mt-3 mb-5 border-line"> <h1>Register</h1> </div>
+                                        </div>
+                                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src={`http://localhost:91/images/register.jpg`} class="image2" /> </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card2 card border-0 px-4 py-5">
+                                        <h4>Fill your details here</h4>
+                                        <p></p><p></p><p></p>
+                                        <div class="row px-3"> <label class="mb-1">
+                                            <h6 class="mb-0 text-sm">First Name</h6>
+                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter your firstname" value={this.state.firstname} name="firstname" onChange={this.inputHandler} /> </div>
+                                        <div class="row px-3"> <label class="mb-1">
+                                            <h6 class="mb-0 text-sm">Last Name</h6>
+                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter your last name" value={this.state.lastname} name="lastname" onChange={this.inputHandler} /> </div>
+                                        <div class="row px-3"> <label class="mb-1">
+                                            <h6 class="mb-0 text-sm">Age</h6>
+                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter age" value={this.state.age} name="age" onChange={this.inputHandler} /> </div>
+                                        <div class="row px-3"> <label class="mb-1">
+                                            <h6 class="mb-0 text-sm">Address</h6>
+                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter your address" value={this.state.address} name="address" onChange={this.inputHandler} /> </div>
+                                        
+                                        <div class="row px-3"> <label class="mb-1">
+                                            <h6 class="mb-0 text-sm">Phone number</h6>
+                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter phonenumber" value={this.state.phone} name="phone" onChange={this.inputHandler} /> </div>
+                                        <div class="row px-3"> <label class="mb-1">
+                                            <h6 class="mb-0 text-sm">Email Address</h6>
+                                        </label> <input class="mb-4" type="text" name="email" class="form-rounded" placeholder="Enter a valid email address" value={this.state.email} name="email" onChange={this.inputHandler} /> </div>
+                                        <div class="row px-3"> <label class="mb-1">
+                                            <h6 class="mb-0 text-sm">Password</h6>
+                                        </label> <input type="password" name="password" placeholder="Enter password" class="form-rounded" value={this.state.password} name="password" onChange={this.inputHandler} /> </div>
+                                        <div class="row px-3"> <label class="mb-1">
+                                            <h6 class="mb-0 text-sm">Role</h6>
+                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="select role" value={this.state.role} name="role" onChange={this.inputHandler} /> </div>
+                                        <div class="row px-3 mb-4">
+                                            <p>
+                                                <input type="file" name="photo" class="form-rounded" ref="photo" />
+                                            </p>
+                                        </div>
+                                        <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" onClick={this.sendUserInfo}>Register</button> </div>
+                                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Already a user? <a class="text-danger "><Link to='/login'>Login</Link></a></small> </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <p>lastname<input type="text" value={this.state.lastname} name="lastname"
-                            onChange={this.inputHandler} /></p>
+                        </div>
+                    </div>
 
-                        <p>Age<input type="text" value={this.state.age} name="age"
-                            onChange={this.inputHandler} /></p>
-
-                        <p>Address<input type="text" value={this.state.country} name="address"
-                            onChange={this.inputHandler} /></p>
-
-                        <p>Phone<input type="text" value={this.state.phone} name="phone"
-                            onChange={this.inputHandler} /></p>
-
-                        <p>Email<input type="text" value={this.state.email} name="email"
-                            onChange={this.inputHandler} /></p>
-
-                        <p>Password<input type="password" value={this.state.password} name="password"
-                            onChange={this.inputHandler} /></p>
-
-                        <p>Role<input type="role" value={this.state.Role} name="role"
-                            onChange={this.inputHandler} /></p>
-
-                        <p>
-                            <input type="file" name="photo" ref="photo"/>
-                        </p>
-
-                        <Button onClick={this.sendUserInfo}>Submit</Button>
-
-                    </form>
-
-
-                </Card>
+                </div>
             </div>
 
         )

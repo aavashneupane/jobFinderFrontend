@@ -1,7 +1,8 @@
 import { Button } from "../Header/Button";
-import { Redirect,Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Card, Form } from 'react-bootstrap';
 import './login.css';
+import Swal from 'sweetalert2';
 const { Component } = require("react");
 const axios = require('axios').default;
 
@@ -34,7 +35,12 @@ class Login extends Component {
                 localStorage.setItem('firstname', response.data.firstName)
                 localStorage.setItem('lastname', response.data.lastName)
                 localStorage.setItem('photo', response.data.photo)
-                window.location.href = '/showAllJob';
+                if(localStorage.getItem('role')==='Company'){
+                    window.location.href = '/myListings';
+                }else{
+                    window.location.href = '/showAllJob';
+                }
+                
                 //console.log(response.data);
             })
             .catch(err => {
@@ -72,14 +78,14 @@ class Login extends Component {
                             </div>
                             <div class="col-lg-6">
                                 <div class="card2 card border-0 px-4 py-5">
-                                <h2>Enter your details here</h2>
-                                <p></p><p></p><p></p><p></p><p></p>
+                                    <h2>Enter your details here</h2>
+                                    <p></p><p></p><p></p><p></p><p></p>
                                     <div class="row px-3"> <label class="mb-1">
                                         <h6 class="mb-0 text-sm">Email Address</h6>
                                     </label> <input class="mb-4" type="text" name="email" class="form-rounded" placeholder="Enter a valid email address" value={this.state.email} name="email" onChange={this.inputHandler} /> </div>
                                     <div class="row px-3"> <label class="mb-1">
                                         <h6 class="mb-0 text-sm">Password</h6>
-                                    </label> <input type="password" name="password" placeholder="Enter password" class="form-rounded" value={this.state.password} name="password" onChange={this.inputHandler}/> </div>
+                                    </label> <input type="password" name="password" placeholder="Enter password" class="form-rounded" value={this.state.password} name="password" onChange={this.inputHandler} /> </div>
                                     <div class="row px-3 mb-4">
 
                                     </div>

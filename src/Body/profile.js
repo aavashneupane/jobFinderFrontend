@@ -20,7 +20,7 @@ class Profile extends Component {
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
-        // console.log(response.data)
+        console.log("Data"+response.data._id)
         this.setState({
           users: response.data,
         });

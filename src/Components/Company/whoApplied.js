@@ -122,7 +122,7 @@ class whoApplied extends Component {
                                                             <p class="card-text-center">Email :{users.userid.email}</p>
                                                             <p class="card-text-center">Phone :{users.userid.phone}</p>
                                                             <p class="card-text-center">Job ID :{users.jobid}</p>
-                                                            <p>Current status for this job: {users.confirmStatus}</p>
+                                                            <p>Current status for this applicacnt: {users.confirmStatus}</p>
 
 
                                                             {

@@ -9,6 +9,8 @@ import myListings from '../Components/Company/myListings';
 import myApplied from '../Components/Customer/myApplied';
 import profile2 from './profile2';
 import updateProfile2 from '../Components/Customer/updateProfile2';
+import updateResume from '../Components/Customer/updateResume';
+import updatePicture from '../Components/Customer/updatePicture';
 
 import whoApplied from '../Components/Company/whoApplied';
 import updateJob from '../Components/Company/updateJob';
@@ -27,7 +29,7 @@ class Body extends Component {
 
     render() {
         return(
-          <Container>
+          <div>
               <Route path="/" exact component={home}/>
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
@@ -41,12 +43,14 @@ class Body extends Component {
               <Route path='/profile2' component={profile2} />
               <Route path='/updateProfile/:id' component={updateProfile} />
               <Route path='/updateProfile2/:id' component={updateProfile2} />
+              <Route path='/updateResume/:id' component={updateResume} />
+              <Route path='/updatePicture/:id' component={updatePicture} />
               <Route path='/myListings' component={myListings} />
               <Route path='/myApplied' component={myApplied} />
               <Route path='/whoApplied/:id' component={whoApplied} />
               
 
-          </Container>
+          </div>
 
 
         )

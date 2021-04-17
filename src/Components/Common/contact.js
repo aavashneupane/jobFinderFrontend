@@ -1,4 +1,5 @@
-import './contact.css';
+
+import { Redirect, Link } from 'react-router-dom';
 const axios = require('axios').default;
 const { Component } = require("react");
 
@@ -23,7 +24,7 @@ class contact extends Component {
     }
 
     ifLogined = (e) => {
-        
+
         e.preventDefault()
         axios({
             method: 'post',
@@ -82,13 +83,13 @@ class contact extends Component {
             var status =
                 <div>
                     <label for="fname">First Name</label>
-                    <input type="text" name="firstname" value={this.state.firstname} onChange={this.inputHandler} />
+                    <input type="text" name="firstname" value={this.state.firstname} placeholder="First Name" onChange={this.inputHandler} />
                     <label for="lname">Last Name</label>
-                    <input type="text" name="lastname" value={this.state.lastname} onChange={this.inputHandler} />
+                    <input type="text" name="lastname" value={this.state.lastname} onChange={this.inputHandler} placeholder="Last Name" />
                     <label for="email">Email</label>
-                    <input type="text" name="email" value={this.state.email} onChange={this.inputHandler} />
+                    <input type="text" name="email" value={this.state.email} onChange={this.inputHandler} placeholder="Email" />
                     <label for="subject">Subject</label>
-                    <input type="text" name="query" value={this.state.query} onChange={this.inputHandler} />
+                    <input type="text" name="query" value={this.state.query} onChange={this.inputHandler} placeholder="Your message" />
                     <button className="btn btn-secondary" onClick={this.ifNotLogined}>Submit</button>
 
                 </div>
@@ -99,40 +100,34 @@ class contact extends Component {
 
         return (
 
+            <div className="login">
 
-            <div className="auth-wrapper-contact">
-                <div className="auth-inner-contact">
-                    <div className="contact-form">
-
-                    <div className="contact">
-
-                        <div class="container">
-                            <div>
-                                <h2>Contact Us</h2>
-                                <p>Swing by for a cup of coffee, or leave us a message:</p>
-                            </div>
-                            <div class="row">
-                                <div class="column">
-                                    <img src={`http://localhost:91/images/user.jpg`} alt="Jane" style={{ width: "325px" }} ></img>
+                <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+                    <div class="card card0 border-0">
+                        <div class="row d-flex">
+                            <div class="col-lg-6">
+                                <div class="card1 pb-5">
+                                    <div class="row">
+                                        <div class="row px-5 justify-content-center mt-3 mb-5 border-line"> <h1>Contact Us</h1> </div>
+                                    </div>
+                                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src={`http://localhost:91/images/contactus.png`} alt="contactus" style={{ width: "380px",height: "480px", }} ></img></div>
                                 </div>
-                                <div class="column">
-
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card2 card border-0 px-4 py-5">
+                                                                 <p>Place all your queries over here and we will contact you soon.</p>
+                                    <p></p><p></p><p></p>
                                     {status}
-
-
-
+                                   
+                                   
                                 </div>
                             </div>
                         </div>
 
-</div>
-
-
                     </div>
                 </div>
-            </div>
-            
 
+            </div>
 
         )
     }

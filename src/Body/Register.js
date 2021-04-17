@@ -91,29 +91,35 @@ class Register extends Component {
                                         <p></p><p></p><p></p>
                                         <div class="row px-3"> <label class="mb-1">
                                             <h6 class="mb-0 text-sm">First Name</h6>
-                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter your firstname" value={this.state.firstname} name="firstname" onChange={this.inputHandler} /> </div>
+                                        </label> <input class="mb-4" type="text" className="form-rounded" placeholder="Enter your firstname" value={this.state.firstname} name="firstname" onChange={this.inputHandler} /> </div>
                                         <div class="row px-3"> <label class="mb-1">
                                             <h6 class="mb-0 text-sm">Last Name</h6>
-                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter your last name" value={this.state.lastname} name="lastname" onChange={this.inputHandler} /> </div>
-                                        <div class="row px-3"> <label class="mb-1">
-                                            <h6 class="mb-0 text-sm">Age</h6>
-                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter age" value={this.state.age} name="age" onChange={this.inputHandler} /> </div>
-                                        <div class="row px-3"> <label class="mb-1">
-                                            <h6 class="mb-0 text-sm">Address</h6>
-                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter your address" value={this.state.address} name="address" onChange={this.inputHandler} /> </div>
-                                        
-                                        <div class="row px-3"> <label class="mb-1">
-                                            <h6 class="mb-0 text-sm">Phone number</h6>
-                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="Enter phonenumber" value={this.state.phone} name="phone" onChange={this.inputHandler} /> </div>
-                                        <div class="row px-3"> <label class="mb-1">
-                                            <h6 class="mb-0 text-sm">Email Address</h6>
-                                        </label> <input class="mb-4" type="text" name="email" class="form-rounded" placeholder="Enter a valid email address" value={this.state.email} name="email" onChange={this.inputHandler} /> </div>
-                                        <div class="row px-3"> <label class="mb-1">
-                                            <h6 class="mb-0 text-sm">Password</h6>
-                                        </label> <input type="password" name="password" placeholder="Enter password" class="form-rounded" value={this.state.password} name="password" onChange={this.inputHandler} /> </div>
-                                        <div class="row px-3"> <label class="mb-1">
+                                        </label> <input class="mb-4" type="text" className="form-rounded" placeholder="Enter your last name" value={this.state.lastname} name="lastname" onChange={this.inputHandler} /> </div>
+                                        <div className="row px-3"> <label className="mb-1">
+                                            <h6 className="mb-0 text-sm">Age</h6>
+                                        </label> <input className="mb-4" type="text" className="form-rounded" placeholder="Enter age" value={this.state.age} name="age" onChange={this.inputHandler} /> </div>
+                                        <div className="row px-3"> <label className="mb-1">
+                                            <h6 className="mb-0 text-sm">Address</h6>
+                                        </label> <input className="mb-4" type="text" className="form-rounded" placeholder="Enter your address" value={this.state.address} name="address" onChange={this.inputHandler} /> </div>
+
+                                        <div className="row px-3"> <label className="mb-1">
+                                            <h6 className="mb-0 text-sm">Phone number</h6>
+                                        </label> <input className="mb-4" type="text" className="form-rounded" placeholder="Enter phonenumber" value={this.state.phone} name="phone" onChange={this.inputHandler} /> </div>
+                                        <div className="row px-3"> <label className="mb-1">
+                                            <h6 className="mb-0 text-sm">Email Address</h6>
+                                        </label> <input className="mb-4" type="text" name="email" className="form-rounded" placeholder="Enter a valid email address" value={this.state.email} name="email" onChange={this.inputHandler} /> </div>
+                                        <div className="row px-3"> <label className="mb-1">
+                                            <h6 className="mb-0 text-sm">Password</h6>
+                                        </label> <input type="password" name="password" placeholder="Enter password" className="form-rounded" value={this.state.password} name="password" onChange={this.inputHandler} /> </div>
+                                        <div className="row px-3"> <label className="mb-1">
                                             <h6 class="mb-0 text-sm">Role</h6>
-                                        </label> <input class="mb-4" type="text" class="form-rounded" placeholder="select role" value={this.state.role} name="role" onChange={this.inputHandler} /> </div>
+                                        </label>
+                                            <p></p>
+                                            <select class="form-rounded">
+                                                <option value="Company" class="form-rounded" id="firstOption">Company</option>
+                                                <option value="Customer" id="secondOption" class="form-rounded">Customer</option>
+                                            </select>
+                                            <input class="mb-4" type="text" class="form-rounded" placeholder="select role" value={this.state.role} name="role" onChange={this.inputHandler} /> </div>
                                         <div class="row px-3 mb-4">
                                             <p>
                                                 <input type="file" name="photo" class="form-rounded" ref="photo" />

@@ -70,8 +70,8 @@ class updateProfile2 extends Component {
         e.preventDefault();
         // alert(this.state.id)
         const data = new FormData() // new line
-        var image = this.refs.photo.files[0];
-        //var cv = this.refs.resume.files[0];
+      //  var image = this.refs.photo.files[0];
+ //   var cv = this.refs.photo.files[0];
         data.append('firstname', this.state.firstname)
         data.append('lastname', this.state.lastname)
         data.append('userbio', this.state.userbio)
@@ -81,7 +81,8 @@ class updateProfile2 extends Component {
         data.append('resume', this.state.resume)
         data.append('projects', this.state.projects)
         data.append('experience', this.state.experience)
-        data.append('photo', image)
+     //   data.append('photo', image)
+   //     data.append('resume', cv)
         axios({
             method: 'put',
             url: 'http://localhost:91/profile/editProfileCustomer/' + this.state.id,
@@ -197,12 +198,7 @@ class updateProfile2 extends Component {
                                     />
 
                                 </p>
-                                <p>
-                                    Photo<input type="file" name="photo" ref="photo" />
-                                </p>
-                                <p>
-                                    Resume<input type="file" name="resume" onChange={this.uploadHandler} />
-                                </p>
+                            
 
 
                                 <button onClick={this.updateProfile} class="btn btn-warning">Update Profile</button>

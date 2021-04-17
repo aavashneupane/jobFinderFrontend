@@ -55,12 +55,13 @@ class Profile2 extends Component {
                 <div class="card-header"></div>
                 <div class="card-body">
                 <img src={`http://localhost:91/${this.state.userss.photo}`} className="img-fluid" style={{ height: "400px" }} />
+                <Link to={"/updatePicture/"+this.state.userss._id}>Update Picture</Link>
                   <p>
                     Name :{this.state.userss.firstname}{" "}
                     {this.state.userss.lastname}
                   </p>
                   <p>Short bio of user :{this.state.userss.userbio}</p>
-                  <p>Resume Link:<a href={`http://localhost:91/${this.state.userss.resume}`} target="_blank">Click to view my resume</a></p>
+                  <p>Resume Link:<a href={`http://localhost:91/${this.state.userss.resume}`} target="_blank">Click to view my resume</a></p><Link to={"/updateResume/"+this.state.userss._id}>Update Resume</Link>
                   <p>Email :{this.state.userss.email}</p>
                   <p>Address:{this.state.userss.address}</p>
                   <p>Age:{this.state.userss.age}</p>
@@ -69,7 +70,8 @@ class Profile2 extends Component {
                   <p>experience:{this.state.userss.experience}</p>
                   <p>Joined in:{this.state.userss.createdAt}</p>
                   <button class="btn btn-warning">
-                  <Link to={"/updateProfile2/"+this.state.userss._id}>Update</Link>
+                  <Link to={"/updateProfile2/"+this.state.userss._id}>Update Users</Link>
+                  
                       </button>
                 </div>
               </div>

@@ -55,7 +55,8 @@ class showAllJob extends Component {
       .then((response) => {
         // console.log(this.state.config)
         console.log(response);
-        alert("Job apply successfull");
+        
+        //alert("Job apply successfull");
       })
       .catch((err) => {
         console.log(this.state.config)

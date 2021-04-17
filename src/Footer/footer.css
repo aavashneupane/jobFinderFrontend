@@ -1,0 +1,76 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+.footer section {
+    padding: 60px 0;
+}
+
+
+.footer section .section-title {
+    text-align: center;
+    color: #44a72b;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+.footer #footer {
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
+}
+.footer #footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+.footer #footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+.footer #footer ul.social li{
+	padding: 3px 0;
+}
+.footer #footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+.footer #footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+.footer #footer ul.social li a,
+.footer #footer ul.quick-links li a{
+	color:#ffffff;
+}
+.footer #footer ul.social li a:hover{
+	color:#eeeeee;
+}
+.footer #footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+.footer #footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+.footer #footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+.footer #footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	.footer #footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}

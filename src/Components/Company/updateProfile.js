@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from "../../Header/Button";
-import { Card } from "react-bootstrap";
+
+import { Card,Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 const axios = require('axios').default;
 
@@ -77,7 +77,7 @@ class updateProfile extends Component {
             method: 'put',
             url: 'http://localhost:91/profile/editProfileCompany/' + this.state.id,
             data: data,
-            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
+            headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
             //axios.put('http://localhost:91/profile/editProfileCompany'+this.state, this.state.config)
             .then((response) => {
@@ -182,7 +182,7 @@ class updateProfile extends Component {
                                 </p>
                                 <p>
                                     
-                                    <input type="file" name="photo" value={this.state.photo} ref="photo" />
+                                Photo<input type="file" name="photo" ref="photo"  onChange={this.fileHandler} />
                                 </p>
 
 

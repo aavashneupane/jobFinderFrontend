@@ -1,5 +1,4 @@
-// import { MenuItems } from "./MenuItems";
-import './header.css';
+
 //import { Button } from "./Button";
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Button, Form, FormControl } from 'react-bootstrap';
@@ -24,21 +23,23 @@ class Header extends Component {
         if (localStorage.getItem('token') && localStorage.getItem('role') === 'Company') {
             var menu =
                 <div>
-                    
+
                     <Navbar bg="light" expand="lg" bg="light" class="navbar">
-                        <Navbar.Brand href="#home">JobFinder <i className="fab fa-instagram"></i></Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Brand href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </Navbar.Brand>
+                        <Navbar.Brand href="/"><Link className="navbarText" to="/">JobFinder <i className="fas fa-briefcase"></i></Link></Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbarmobile" />
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="ml-auto">
-                                <Nav.Link><Link to="/"> Home</Link></Nav.Link>
-                                <Nav.Link><Link to="/aboutus">About us</Link></Nav.Link>
-                                <Nav.Link><Link to="/contact">Contact us</Link></Nav.Link>
-                                <Nav.Link><Link to="/profile"> Profile</Link></Nav.Link>
-                                <Nav.Link><Link to="/jobAdd">Add Job</Link></Nav.Link>
-                                <Nav.Link><Link to="/myListings">My Listings</Link></Nav.Link>
+                            <Nav className="ml-auto" >
+                                <Nav.Link ><Link className="navbarText" to="/"> Home</Link></Nav.Link>
+                               
+                                <Nav.Link ><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
+                                <Nav.Link ><Link className="navbarText" to="/profile"> Profile</Link></Nav.Link>
+                                <Nav.Link ><Link className="navbarText" to="/jobAdd">Add Job</Link></Nav.Link>
+                                <Nav.Link ><Link className="navbarText" to="/myListings">My Listings</Link></Nav.Link>
                                 <div className="text-light">
-                                    <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
-                                    <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
+                                    <li className="navbarText">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
+                                    <h6><li className="navbarText">{localStorage.getItem('email')}</li></h6>
                                 </div>
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 
@@ -54,19 +55,20 @@ class Header extends Component {
                 <div>
 
                     <Navbar bg="light" expand="lg" bg="light" class="navbar">
-                        <Navbar.Brand href="#home">JobFinder <i className="fab fa-instagram"></i></Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Brand href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </Navbar.Brand>
+                        <Navbar.Brand href="/"><Link className="navbarText" to="/">JobFinder <i className="fas fa-briefcase"></i></Link></Navbar.Brand>                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
-                                <Nav.Link><Link to="/"> Home</Link></Nav.Link>
-                                <Nav.Link><Link to="/aboutus">About us</Link></Nav.Link>
-                                <Nav.Link><Link to="/contact">Contact us</Link></Nav.Link>
-                                <Nav.Link><Link to="/showAllJob"> Show All Job</Link></Nav.Link>
-                                <Nav.Link><Link to="/profile2"> Profile</Link></Nav.Link>
-                                <Nav.Link><Link to="/myApplied">My Applied</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/"> Home</Link></Nav.Link>
+
+                                <Nav.Link><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/showAllJob"> Show All Job</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/profile2"> Profile</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/myApplied">My Applied</Link></Nav.Link>
                                 <div className="text-light">
-                                    <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
-                                    <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
+                                    <li className="navbarText">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
+                                    <h6><li className="navbarText">{localStorage.getItem('email')}</li></h6>
                                 </div>
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 
@@ -82,18 +84,20 @@ class Header extends Component {
                 <div>
 
                     <Navbar bg="light" expand="lg" bg="light" class="navbar">
-                        <Navbar.Brand href="#home">JobFinder <i className="fab fa-instagram"></i></Navbar.Brand>
+                        <Navbar.Brand href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </Navbar.Brand>
+                        <Navbar.Brand href="/"><Link className="navbarText" to="/">JobFinder <i className="fas fa-briefcase"></i></Link></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
-                                <Nav.Link><Link to="/"> Home</Link></Nav.Link>
-                                <Nav.Link><Link to="/aboutus">About us</Link></Nav.Link>
-                                <Nav.Link><Link to="/contact">Contact us</Link></Nav.Link>
-                                <Nav.Link><Link to="/showAllJob"> Show All Job</Link></Nav.Link>
-                                <Nav.Link><Link to="/showcontactus">Show Messages</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/"> Home</Link></Nav.Link>
+
+
+                                <Nav.Link><Link className="navbarText" to="/showAllJob"> Show All Job</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/showcontactus">Show Messages</Link></Nav.Link>
                                 <div className="text-light">
-                                    <li className="">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
-                                    <h6><li className="nav-below">{localStorage.getItem('email')}</li></h6>
+                                    <li className="navbarText">{localStorage.getItem('firstname')} {localStorage.getItem('lastname')}</li>
+                                    <h6><li className="navbarText">{localStorage.getItem('email')}</li></h6>
                                 </div>
                                 <Button variant="outline-success" onClick={this.logout}>Logout</Button>
 
@@ -106,16 +110,18 @@ class Header extends Component {
             var menu =
                 <div>
                     <Navbar bg="light" expand="lg" bg="light" class="navbar">
-                        <Navbar.Brand href="#home">JobFinder <i className="fab fa-instagram"></i></Navbar.Brand>
+                        <Navbar.Brand href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </Navbar.Brand>
+                        <Navbar.Brand href="/"><Link className="navbarText" to="/">JobFinder <i className="fas fa-briefcase"></i></Link></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
-                                <Nav.Link><Link to="/"> Home</Link></Nav.Link>
-                                <Nav.Link><Link to="/aboutus">About us</Link></Nav.Link>
-                                <Nav.Link><Link to="/contact">Contact us</Link></Nav.Link>
+                                <Nav.Link><Link className="navbarText" to="/"> Home</Link></Nav.Link>
 
-                                <Button variant="outline-success"><Link to="/login">Login</Link></Button>
-                                <Button variant="outline-success"><Link to="/register">Register</Link></Button>
+                                <Nav.Link><Link className="navbarText" to="/contact">Contact us</Link></Nav.Link>
+
+                                <Button variant="outline-success"><Link className="navbarText" to="/login">Login</Link></Button>
+                                <Button variant="outline-success"><Link className="navbarText" to="/register">Register</Link></Button>
                             </Nav>
 
                         </Navbar.Collapse>
@@ -127,9 +133,6 @@ class Header extends Component {
             <div>
 
                 {menu}
-
-
-
 
 
 

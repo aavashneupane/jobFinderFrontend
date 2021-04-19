@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Badge, Button, Alert } from 'react-bootstrap';
 import { Route, Link, useParams } from 'react-router-dom';
-import { Button } from "../../Header/Button";
+
 import { Card } from 'react-bootstrap';
 //import { axios } from 'axios';
 const axios = require('axios').default;
@@ -12,7 +12,7 @@ const axios = require('axios').default;
 class whoApplied extends Component {
 
     state = {
-        
+
         applied: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -49,22 +49,24 @@ class whoApplied extends Component {
 
     confirmMethod = (id) => {
         //  e.preventDefault()
-        
+
         axios({
             method: 'put',
-            url: 'http://localhost:91/job/approveJob/'+id,
-            data: {confirmStatus:"Confirmed"},
+            url: 'http://localhost:91/job/approveJob/' + id,
+            data: { confirmStatus: "Confirmed" },
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` },
-            
+
         })
             // .put("http://localhost:91/job/approve/" + id, this.state.config)
             .then(response => {
-                console.log("to update"+id);
+                console.log("to update" + id);
                 alert("Job has been confirmed")
+                window.location.reload()
             })
             .catch(err => {
                 console.log(err.response);
                 alert("Error confirming job")
+
             })
 
 
@@ -74,13 +76,14 @@ class whoApplied extends Component {
         //   e.preventDefault();
         axios({
             method: 'put',
-            url: 'http://localhost:91/job/approveJob/'+id,
-            data: {confirmStatus:"denied"},
+            url: 'http://localhost:91/job/approveJob/' + id,
+            data: { confirmStatus: "denied" },
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         })
             .then(response => {
                 console.log(response);
                 alert("Job has been denied")
+                window.location.reload()
             })
             .catch(err => {
                 console.log(err.response);
@@ -97,78 +100,79 @@ class whoApplied extends Component {
         return (
             <Container>
                 <Row>
+
                     <div>
-                        <p>Applicants that applied for this job</p>
-
-                        <Card body>
-                            <div class="card-text-center">
-                                <div class="card-header"></div>
-                                <div class="card-body">
-
-                                    {this.state.applied.map((users) => {
-                                        return (
-                                            <div>
-                                                <Card body>
-                                                    <div class="card-text-center">
-                                                        <div class="card-header">
-                                                        <img src={`http://localhost:91/${users.userid.photo}`} className="img-fluid" style={{ height: "400px" }} />
-                                                            <h5 class="card-title">{users.userid.firstname} {users.userid.lastname}</h5>
-                                                            <h5 class="card-title">User description: {users.userid.userbio}</h5>
-                                                            <p>Resume Link:<a href={`http://localhost:91/${users.userid.resume}`} target="_blank">Click to view the resume</a></p>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <p class="card-text-center">Experience :{users.userid.experience}</p>
-                                                            <p class="card-text-center">Projects :{users.userid.projects}</p>
-                                                            <p class="card-text-center">Email :{users.userid.email}</p>
-                                                            <p class="card-text-center">Phone :{users.userid.phone}</p>
-                                                            <p class="card-text-center">Job ID :{users.jobid}</p>
-                                                            <p>Current status for this applicacnt: {users.confirmStatus}</p>
-
-
-                                                            {
-                                                                users.confirmStatus === "Confirmed"
-                                                                    ? (<div>
-                                                                        <button disabled={true} onClick={this.confirmMethod.bind(this, users._id)}>Confirm</button> &nbsp;
-                                                                        <button onClick={this.denyMethod.bind(this, users._id)} >Deny</button>
-
-                                                                    </div>)
-                                                                    : users.confirmStatus === "denied"
-                                                                        ? (<div>
-                                                                            <button onClick={this.confirmMethod.bind(this, users._id)}>Confirm</button> &nbsp;
-                                                                            <button disabled={true} onClick={this.denyMethod.bind(this, users._id)} >Deny</button>
-
-                                                                        </div>)
-                                                                        : (<div>
-                                                                            <button onClick={this.confirmMethod.bind(this, users._id)}>Confirm</button>&nbsp;
-                                                                            <button onClick={this.denyMethod.bind(this, users._id)}>Deny</button>
-
-                                                                        </div>)
-
-                                                            }
-
-
-                                                        </div>
-                                                    </div>
-                                                </Card>
-                                                <p></p>
-                                            </div>
-                                        );
-                                    })}
-
-
-                                    {/* <button class="btn btn-warning">
-                                        
-                                        <Link to={"/updateProfile2/" + this.state.applied.userid._id}>Update</Link>
-                                    </button> */}
-
-
-
-
-                                </div>
-                            </div>
-                        </Card>
                         <p></p>
+
+                        {
+                            this.state.applied.map((users) => {
+                                return (<div>
+                                    <div class="py-5 service-22">
+                                        <div class="container">
+
+                                            <div class="row wrap-service-22">
+
+                                                <div class="col-lg-6">
+                                                    <img src={`http://localhost:91/${users.userid.photo}`} class="rounded img-shadow img-fluid" alt="wrapkit" style={{ height: "400px" }} />
+                                                </div>
+
+                                                <div class="col-lg-6 mt-4 mt-md-0">
+                                                    <div class="text-box">
+                                                        <small class="text-info font-weight-medium">Applied for: {users.jobid.jobtitle} </small>
+                                                        <h4 class="font-weight-light mt-2 mb-4">Applicant name: <span class="text-megna">{users.userid.firstname} {users.userid.lastname}</span></h4>
+                                                        <h6 class="font-weight-light">Applicant bio: <span class="text-megna">{users.userid.userbio}</span></h6>
+                                                        <p><h6 class="font-weight-light">Resume Link:<a href={`http://localhost:91/${users.userid.resume}`} target="_blank">Click to view the resume</a></h6></p>
+                                                        <h6 class="font-weight-light">Experience: <span class="text-megna">{users.userid.experience}</span></h6>
+                                                        <h6 class="font-weight-light">Projects: <span class="text-megna">{users.userid.projects}</span></h6>
+                                                        <h6 class="font-weight-light">Email : <span class="text-megna">{users.userid.email}</span></h6>
+                                                        <h6 class="font-weight-light">PhoneNumber: <span class="text-megna">{users.userid.phone}</span></h6>
+
+                                                        <p>Current status for this applicant: {users.confirmStatus}</p>
+                                                        {
+                                                            users.confirmStatus === "Confirmed"
+                                                                ? (
+                                                                    <div>
+
+                                                                        <Button disabled={true} onClick={this.confirmMethod.bind(this, users._id)} variant="success" >Confirm</Button> &nbsp;
+                                                                        <Button variant="danger" onClick={this.denyMethod.bind(this, users._id)} >Deny</Button>
+
+                                                                    </div>
+                                                                )
+                                                                : users.confirmStatus === "denied"
+                                                                    ? (
+                                                                        <div>
+
+                                                                            <Button variant="success" onClick={this.confirmMethod.bind(this, users._id)}>Confirm</Button> &nbsp;
+                                                                            <Button disabled={true} variant="danger" onClick={this.denyMethod.bind(this, users._id)} >Deny</Button>
+
+                                                                        </div>
+                                                                    )
+
+                                                                    : (
+                                                                        <div>
+
+                                                                            <Button variant="success" onClick={this.confirmMethod.bind(this, users._id)}>Confirm</Button>&nbsp;
+                                                                            <Button variant="danger" onClick={this.denyMethod.bind(this, users._id)}>Deny</Button>
+
+                                                                        </div>
+                                                                    )
+                                                        }
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                )
+                            })
+                        }
+
                     </div>
+                    <Col></Col>
                 </Row>
             </Container >
         )

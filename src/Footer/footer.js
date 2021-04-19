@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './footer.css';
+import { Button } from "react-bootstrap";
 const { Component } = require("react");
 
 
@@ -9,48 +10,103 @@ class Footer extends Component {
     render() {
         return (
 
-            <div className="footer">
-                <p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p></p>
-                <section id="footer">
-                    <div class="container">
-                        <div class="row text-center text-xs-center text-sm-left text-md-left">
-                            <div class="col-xs-12 col-sm-4 col-md-4">
-                                <h5>Quick links</h5>
-                                <ul class="list-unstyled quick-links">
-                                    <li><Link to="/contact"><i class="fa fa-angle-double-right"></i>Contact Us</Link></li>
-                                    <li><Link to="/aboutus"><i class="fa fa-angle-double-right"></i>About Us</Link></li>
-                                    <li><Link to="/contact"><i class="fa fa-angle-double-right"></i>FAQ</Link></li>
-                                    <li><Link to="/"><i class="fa fa-angle-double-right"></i>Get Started</Link></li>
-                                    <li><Link to="/contact"><i class="fa fa-angle-double-right"></i>Videos</Link></li>
-                                </ul>
-                            </div>
+
+            <div className='footer-container'>
+                <section className='footer-subscription'>
+                    <p className='footer-subscription-heading'>
+                        Join us to experience the best job hunting experience
+        </p>
+                    
+                    
+                </section>
+                <div class='footer-links'>
+                    <div className='footer-link-wrapper'>
+                        <div class='footer-link-items'>
+                            <h2>About Us</h2>
+                            <Link to='/sign-up'>Join us now</Link>
                             
-                           
+                            <Link to='/Login'>About us</Link>
+                            
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                                <ul class="list-unstyled list-inline social text-center">
-                                    
-                                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/aavash-neupane-9ba053189/"><i class="fa fa-linkedin"></i></a></li>
-                                    <li class="list-inline-item"><a href="https://www.facebook.com/aavash7/"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="list-inline-item"><a href="https://www.instagram.com/_aavashh_/"><i class="fa fa-instagram"></i></a></li>
-                                    
-                                    
-                                    
-                                </ul>
-                            </div>
-                            <hr/>
-			</div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                                    <p><u>Find your dream job right now.</u></p>
-                                    <p class="h6"><a class="text-green ml-2" href="https://www.linkedin.com/in/aavash-neupane-9ba053189/" target="_blank">Aavash Neupane</a></p>
-                                </div>
-                                <hr/>
-			</div>
-                            </div>
-	</section>
+                        <div class='footer-link-items'>
+                            <h2>Contact Us</h2>
+                            <Link to='/contact'>Contact</Link>
+                            
+                        </div>
                     </div>
+                    <div className='footer-link-wrapper'>
+                        <div class='footer-link-items'>
+                            <h2>Videos</h2>
+                            
+                            <a href='https://www.youtube.com/watch?v=x2wNf4evAPM' target='_blank'>Android Video</a>
+                            <a href='https://www.youtube.com/watch?v=x2wNf4evAPM' target='_blank'>Web Video</a>
+                            
+                        </div>
+                        <div class='footer-link-items'>
+                            <h2>Social Media</h2>
+                            <Link to='/'>Instagram</Link>
+                            <Link to='/'>Facebook</Link>
+                            <Link to='/'>Youtube</Link>
+                            <Link to='/'>Twitter</Link>
+                        </div>
+                    </div>
+                </div>
+                <section class='social-media'>
+                    <div class='social-media-wrap'>
+                        <div class='footer-logo'>
+                            <Link to='/' className='social-logo'>
+                                JOB FINDER
+              
+                                <i class='fab fa-typo3' />
+                            </Link>
+                        </div>
+                        <medium class='website-rights'>JobFinder © 2021</medium>
+                        <div class='social-icons'>
+                            <Link
+                                class='social-icon-link facebook'
+                                to='/'
+                                target='_blank'
+                                aria-label='Facebook'
+                            >
+                                <i class='fab fa-facebook-f' />
+                            </Link>
+                            <Link
+                                class='social-icon-link instagram'
+                                to='/'
+                                target='_blank'
+                                aria-label='Instagram'
+                            >
+                                <i class='fab fa-instagram' />
+                            </Link>
+                            <Link
+                                class='social-icon-link youtube'
+                                to='/'
+                                target='_blank'
+                                aria-label='Youtube'
+                            >
+                                <i class='fab fa-youtube' />
+                            </Link>
+                            <Link
+                                class='social-icon-link twitter'
+                                to='/'
+                                target='_blank'
+                                aria-label='Twitter'
+                            >
+                                <i class='fab fa-twitter' />
+                            </Link>
+                            <Link
+                                class='social-icon-link twitter'
+                                to='/'
+                                target='_blank'
+                                aria-label='LinkedIn'
+                            >
+                                <i class='fab fa-linkedin' />
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
         )
     }
 

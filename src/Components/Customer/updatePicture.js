@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from "../../Header/Button";
-import { Card } from "react-bootstrap";
+
+import { Card,Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 const axios = require('axios').default;
 
@@ -34,7 +34,7 @@ class updatePicture extends Component {
     async componentDidMount() {
         await axios({
             method: "get",
-            url: "http://localhost:91/profile2",
+            url: "http://localhost:91/profile",
             headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
             .then((response) => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from "../../Header/Button";
-import { Card } from "react-bootstrap";
+
+import { Card,Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 const axios = require('axios').default;
 
@@ -15,7 +15,7 @@ class updateProfile2 extends Component {
         projects: '',
         experience: '',
         photo: '',
-        resume:'',
+        resume: '',
         userbio: '',
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -42,7 +42,7 @@ class updateProfile2 extends Component {
     async componentDidMount() {
         await axios({
             method: "get",
-            url: "http://localhost:91/profile2",
+            url: "http://localhost:91/profile",
             headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
             .then((response) => {
@@ -70,8 +70,8 @@ class updateProfile2 extends Component {
         e.preventDefault();
         // alert(this.state.id)
         const data = new FormData() // new line
-      //  var image = this.refs.photo.files[0];
- //   var cv = this.refs.photo.files[0];
+        //  var image = this.refs.photo.files[0];
+        //   var cv = this.refs.photo.files[0];
         data.append('firstname', this.state.firstname)
         data.append('lastname', this.state.lastname)
         data.append('userbio', this.state.userbio)
@@ -81,8 +81,8 @@ class updateProfile2 extends Component {
         data.append('resume', this.state.resume)
         data.append('projects', this.state.projects)
         data.append('experience', this.state.experience)
-     //   data.append('photo', image)
-   //     data.append('resume', cv)
+        //   data.append('photo', image)
+        //     data.append('resume', cv)
         axios({
             method: 'put',
             url: 'http://localhost:91/profile/editProfileCustomer/' + this.state.id,
@@ -107,111 +107,97 @@ class updateProfile2 extends Component {
 
     render() {
         return (
-            <div>
-                <p>Update Customer Profile</p>
-
-                <Card body>
-                    <div class="card-text-center">
-                        <div class="card-header"></div>
-                        <div class="card-body">
-
-
+            <div className="profile-wrapper-job">
+                <div className="profile-inner-job">
+                    <div className="profile-form">
+                        <div>
+                            <div className="profile-title">
+                                Update Profile
+                            </div>
                             <form>
-                                <p>
-                                    <p>
-                                        Name :
-                                 <input type="text" value={this.state.firstname} name="firstname"
-                                            onChange={this.changeHandler}
-                                        ></input>
-                                        {" "}
-                                        <input type="text"
-                                            value={this.state.lastname}
-                                            name="lastname"
-                                            onChange={this.changeHandler}
-                                        />
-                                    </p>
+                                <div className="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" value={this.state.firstname} name="firstname" className="form-control"
+                                        onChange={this.changeHandler}
+                                    ></input>
+                                    <label>Last Name</label>
+                                    <input type="text" value={this.state.lastname} name="lastname" className="form-control"
+                                        onChange={this.changeHandler}
+                                    ></input>
+                                </div>
 
-                                </p>
-                                <p>
-                                    User description :
-
-
-                                        <input type="text"
+                                <div className="form-group">
+                                    <label>User Description</label>
+                                    <input type="text"
                                         value={this.state.userbio}
+                                        className="form-control"
                                         name="userbio"
                                         onChange={this.changeHandler}
                                     />
+                                </div>
 
-                                </p>
-                                <p>
-                                    Address :
-
-
-                                        <input type="text"
+                                <div className="form-group">
+                                    <label>Address</label>
+                                    <input type="text"
+                                        className="form-control"
                                         value={this.state.address}
                                         name="address"
-                                        onChange={this.changeHandler}
-                                    />
+                                        onChange={this.changeHandler}></input>
+                                </div>
 
-                                </p>
-
-                                <p>
-                                    Age :
-
-
-                                        <input type="text"
+                                <div className="form-group">
+                                    <label>Age</label>
+                                    <input type="text"
+                                        className="form-control"
                                         value={this.state.age}
                                         name="age"
                                         onChange={this.changeHandler}
                                     />
+                                </div>
 
-                                </p>
-
-                                <p>
-                                    Phone :
-
-
-                                        <input type="text"
+                                <div className="form-group">
+                                    <label>Phone number</label>
+                                    <input type="text"
+                                        className="form-control"
                                         value={this.state.phone}
                                         name="phone"
                                         onChange={this.changeHandler}
                                     />
+                                </div>
 
-                                </p>
-
-                                <p>
-                                    Projects :
+                                <div className="form-group">
+                                    <label>Projects</label>
                                     <input type="text"
+                                        className="form-control"
                                         value={this.state.projects}
                                         name="projects"
                                         onChange={this.changeHandler}
                                     />
-
-                                </p>
-
-                                <p>
-                                    Experience :
-                                        <input type="text"
+                                </div>
+                                <div className="form-group">
+                                    <label>Experience</label>
+                                    <input type="text"
                                         value={this.state.experience}
                                         name="experience"
+                                        className="form-control"
                                         onChange={this.changeHandler}
                                     />
 
+                                </div>
+
+                                <p>
+                                    <Button variant="danger" onClick={this.updateProfile}>Update Profile</Button>
+
                                 </p>
-                            
 
 
-                                <button onClick={this.updateProfile} class="btn btn-warning">Update Profile</button>
+
+
                             </form>
-
-
-
-
 
                         </div>
                     </div>
-                </Card>
-                <p></p>
+                </div>
             </div>
         )
     }

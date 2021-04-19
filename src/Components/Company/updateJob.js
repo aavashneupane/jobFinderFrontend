@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from "../../Header/Button";
+import { Button } from 'react-bootstrap';
 const axios = require('axios').default;
 
 class updateJob extends Component {
@@ -17,7 +17,7 @@ class updateJob extends Component {
     }
     componentDidMount() {
         
-        axios.get('http://localhost:91/job/showSingle/' + this.state.id,this.state.config)
+        axios.get('http://localhost:91/job/showSingle2/' + this.state.id,this.state.config)
             .then((response) => {
                 this.setState({
                     jobtitle: response.data.jobtitle,
@@ -25,9 +25,10 @@ class updateJob extends Component {
                     jobdescription: response.data.jobdescription,
                     requiredexperience: response.data.requiredexperience,
                     jobprice: response.data.jobprice,
+                    
                 })
 
-
+                console.log(response.data)
             })
             .catch((err) => {
                 console.log(err.response)
@@ -80,7 +81,7 @@ class updateJob extends Component {
                      className="form-control" 
                      value={this.state.jobtitle} 
                      name="jobtitle"
-                     onChange={this.inputHandler}/>
+                     onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
@@ -89,7 +90,7 @@ class updateJob extends Component {
                      className="form-control" 
                      value={this.state.jobtype} 
                      name="jobtype"
-                     onChange={this.inputHandler}/>
+                     onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
@@ -98,7 +99,7 @@ class updateJob extends Component {
                      className="form-control" 
                      value={this.state.jobdescription} 
                      name="jobdescription"
-                     onChange={this.inputHandler}/>
+                     onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
@@ -107,7 +108,7 @@ class updateJob extends Component {
                      className="form-control" 
                      value={this.state.requiredexperience} 
                      name="requiredexperience"
-                     onChange={this.inputHandler}/>
+                     onChange={this.changeHandler}/>
                 </div>
 
                 <div className="form-group">
@@ -116,7 +117,7 @@ class updateJob extends Component {
                      className="form-control" 
                      value={this.state.jobprice} 
                      name="jobprice"
-                     onChange={this.inputHandler}/>
+                     onChange={this.changeHandler}/>
                 </div>
                 
                 {/* <p>

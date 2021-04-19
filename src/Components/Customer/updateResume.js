@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from "../../Header/Button";
-import { Card } from "react-bootstrap";
+
+import { Card,Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 const axios = require('axios').default;
 
@@ -49,9 +49,9 @@ class updateResume extends Component {
         e.preventDefault();
         // alert(this.state.id)
         const data = new FormData() // new line
-        
+
         var cv = this.refs.resume.files[0];
-        
+
         data.append('resume', cv)
         axios({
             method: 'put',
@@ -82,7 +82,13 @@ class updateResume extends Component {
 
                 <Card body>
                     <div class="card-text-center">
-                        <div class="card-header"></div>
+                        <div class="card-header">
+                            <p>
+                                Resume<input type="file" name="resume" ref="resume" onChange={this.uploadHandler} />
+
+                            </p>
+
+                        </div>
                         <div class="card-body">
 
 
@@ -90,10 +96,7 @@ class updateResume extends Component {
 
 
 
-                                <p>
-                                Resume<input type="file" name="resume" ref="resume"  onChange={this.uploadHandler} />
-                                    
-                                </p>
+
 
 
                                 <button onClick={this.updateProfile} class="btn btn-warning">Update Resume</button>

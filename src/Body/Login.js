@@ -1,4 +1,4 @@
-import { Button } from "../Header/Button";
+
 import { Redirect, Link } from 'react-router-dom';
 import { Card, Form } from 'react-bootstrap';
 import './login.css';
@@ -80,12 +80,13 @@ class Login extends Component {
                                 <div class="card2 card border-0 px-4 py-5">
                                     <h2>Enter your details here</h2>
                                     <p></p><p></p><p></p><p></p><p></p>
+                                    
                                     <div class="row px-3"> <label class="mb-1">
                                         <h6 class="mb-0 text-sm">Email Address</h6>
-                                    </label> <input class="mb-4" type="text" name="email" class="form-rounded" placeholder="Enter a valid email address" value={this.state.email} name="email" onChange={this.inputHandler} /> </div>
+                                    </label> <input class="mb-4" type="text" name="email" class="form-rounded" placeholder="Enter a valid email address" value={this.state.email} name="email" onChange={this.inputHandler} required/> </div>
                                     <div class="row px-3"> <label class="mb-1">
                                         <h6 class="mb-0 text-sm">Password</h6>
-                                    </label> <input type="password" name="password" placeholder="Enter password" class="form-rounded" value={this.state.password} name="password" onChange={this.inputHandler} /> </div>
+                                    </label> <input type="password" name="password" placeholder="Enter password" class="form-rounded" value={this.state.password} name="password" onChange={this.inputHandler} required/> </div>
                                     <div class="row px-3 mb-4">
 
                                     </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from "../../Header/Button";
+import { Container, Row, Col,Button } from "react-bootstrap";
 //import { axios } from 'axios';
 const axios = require('axios').default;
 
@@ -71,7 +71,7 @@ class jobAdd extends Component {
                             <form>
                                 <div className="form-group">
                                     <label>Job Title</label>
-                                    <input type="text" className="form-control" placeholder="Enter Enter email" value={this.state.jobtitle} name="jobtitle"
+                                    <input type="text" className="form-control" placeholder="Enter Job Title" value={this.state.jobtitle} name="jobtitle"
                                         onChange={this.inputHandler}/>
                                 </div>
                                 
@@ -82,7 +82,7 @@ class jobAdd extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Job Title</label>
+                                    <label>Job Description</label>
                                     <input type="text" className="form-control" placeholder="Enter Job Description" value={this.state.jobdescription} name="jobdescription"
                                         onChange={this.inputHandler}/>
                                 </div>
@@ -108,35 +108,7 @@ class jobAdd extends Component {
                             
 
                                 
-                                {/* <p>
-                                    <label>Job Title</label>
-                                    <input type="text" value={this.state.jobtitle} name="jobtitle" onChange={this.inputHandler} />
-                                </p>
-                                <p>
-                                    <label>Job type</label>
-                                    <input type="text" value={this.state.jobtype} name="jobtype" onChange={this.inputHandler} />
-                                </p>
-                                <p>
-                                    <label>Job description</label>
-                                    <input type="text" value={this.state.jobdescription} name="jobdescription" onChange={this.inputHandler} />
-                                </p>
-
-                                <p>
-                                    <label>Required experience</label>
-                                    <input type="text" value={this.state.requiredexperience} name="requiredexperience" onChange={this.inputHandler} />
-                                </p>
-                                <p>
-                                    <label>Job price</label>
-                                    <input type="text" value={this.state.jobprice} name="jobprice" onChange={this.inputHandler} />
-                                </p>
-                                <p>
-                                        <input type="file" name="photo" ref="photo"/>
-                                    </p>
-
-                                <p>
-                                    <Button onClick={this.jobAddMethod}>Add Job</Button>
-
-                                </p> */}
+                        
                             </form>
 
                         </div>

@@ -1,4 +1,4 @@
-import { Button } from "../Header/Button";
+
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Route, Link } from "react-router-dom";
 const { Component } = require("react");
@@ -20,7 +20,7 @@ class Profile extends Component {
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((response) => {
-        console.log("Data"+response.data._id)
+        console.log("Data" + response.data._id)
         this.setState({
           users: response.data,
         });
@@ -47,35 +47,49 @@ class Profile extends Component {
     return (
       <Container>
         <Row>
-          <div>
-            <p>Company Profile</p>
 
-            <Card body>
-              <div class="card-text-center">
-                <div class="card-header"></div>
-                <div class="card-body">
-          
-                  <img src={`http://localhost:91/${this.state.users.photo}`} className="img-fluid" style={{ height: "400px" }} />
-                  
-                  <p>
-                    Name :{this.state.users.firstname}{" "}
-                    {this.state.users.lastname}
-                  </p>
-                  <p>Email :{this.state.users.email}</p>
-                  <p>Address:{this.state.users.address}</p>
-                  <p>Age:{this.state.users.age}</p>
-                  <p>Phone:{this.state.users.phone}</p>
-                  <p>company:{this.state.users.company}</p>
-                  <p>foundedin:{this.state.users.foundedin}</p>
-                  <p>Joined in:{this.state.users.createdAt}</p>
-                  <button class="btn btn-warning">
-                    <Link to={"/updateProfile/"+this.state.users._id}>Update</Link>
-                  </button>
+
+          <Card body>
+            <div class="py-5 service-22">
+              <div class="container">
+
+                <div class="row wrap-service-22">
+
+                  <div class="col-lg-6">
+                    <img src={`http://localhost:91/${this.state.users.photo}`} class="rounded img-shadow img-fluid" alt="profile" style={{ height: "400px" }} />
+
+                  </div>
+
+                  <div class="col-lg-6 mt-4 mt-md-0">
+                    <div class="text-box"> <small class="text-info font-weight-medium">User Profile</small>
+                      <h4 class="font-weight-light mt-2 mb-4">Name  :<span class="text-megna">{this.state.users.firstname}{" "}{this.state.users.lastname}</span></h4>
+                      <h6 class="font-weight-light mt-2 mb-4">Email  :<span class="text-megna">{this.state.users.email}</span></h6>
+                      <h6 class="font-weight-light mt-2 mb-4">Phone number  :<span class="text-megna">{this.state.users.phone}</span></h6>
+                      <h6 class="font-weight-light mt-2 mb-4">Address  :<span class="text-megna">{this.state.users.address}</span></h6>
+                      <h6 class="font-weight-light mt-2 mb-4">Age  :<span class="text-megna">{this.state.users.age}</span></h6>
+                      <h6 class="font-weight-light mt-2 mb-4">Company  :<span class="text-megna">{this.state.users.company}</span></h6>
+                      <h6 class="font-weight-light mt-2 mb-4">Founded in  :<span class="text-megna">{this.state.users.foundedin}</span></h6>
+                      <small class="text-info font-weight-medium">Joined on  :{this.state.users.createdAt}</small><br></br><br></br>
+
+                      <Link to={"/updateProfile/" + this.state.users._id}> <button class="btn btn-info-gradiant btn-md text-white border-0" href="#f20"><span>Update Details</span></button></Link>  &nbsp; &nbsp; &nbsp;
+
+
+
+                    </div>
+
+                  </div>
+
                 </div>
               </div>
-            </Card>
-            <p></p>
-          </div>
+            </div>
+
+
+
+          </Card>
+
+
+
+
         </Row>
       </Container>
     );

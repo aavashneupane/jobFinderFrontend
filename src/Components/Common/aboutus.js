@@ -8,9 +8,8 @@ class aboutus extends Component {
    
     render() {
         return (
-            <div>
-                
-            </div>
+           <>
+           </>
 
 
         )

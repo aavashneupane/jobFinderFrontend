@@ -1,2 +1,2 @@
 # Job Finder in ReactJS
-Link of peoject: https://youtu.be/WEIBBwIoCTg
+Link of project: https://youtu.be/WEIBBwIoCTg
